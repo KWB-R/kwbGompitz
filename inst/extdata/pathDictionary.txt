@@ -1,0 +1,13 @@
+BINARY.DIR = <extdata>/bin_<VERSION>
+
+GOMPCAL.EXE = <BINARY.DIR>/gompcal<EXTENSION>
+GOMPRED.EXE = <BINARY.DIR>/gompred<EXTENSION>
+
+EXAMPLE.DIR = <extdata>/example_<VERSION>
+EXAMPLE.OBS.FILE = <EXAMPLE.DIR>/obs.txt
+EXAMPLE.CAL.OUT.FILE = <EXAMPLE.DIR>/calibr.txt
+
+input.file = <target.dir>/observations_val.txt
+strategy.file = <target.dir>/ST<strategy>.txt
+prediction.file = <target.dir>/predict<strategy>.txt
+parameter.file = <target.dir>/param.txt

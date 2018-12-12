@@ -1,0 +1,79 @@
+---
+title: "Vignette Title"
+author: "Vignette Author"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = FALSE,
+  comment = "#>"
+)
+
+survivals <- kwbGompitz::survivals
+```
+
+## One Function To Get all possible Survival Curves
+
+In the following the behaviour of the `survivals` function is demonstrated.
+Start by loading the packages:
+
+```{r}
+library("kwb.utils")
+library("kwbGompitz")
+```
+
+Now get some model parameters from the example calibration:
+
+```{r}
+calibration <- kwbGompitz:::exampleCalibration()
+
+param <- kwbGompitz:::get_survival_parameters(calibration, "Cast Iron")
+
+alphas <- param$alpha
+```
+
+## Standard Survival Curves
+
+```{r}
+args <- list(t = 1:5, bz1 = -1, bz0 = 1, marginal = FALSE, set_attributes = FALSE)
+```
+
+### Matrix Output
+```{r}
+callWith(survivals, args, alpha = alphas)
+callWith(survivals, args, alpha = alphas[1:2])
+callWith(survivals, args, alpha = alphas[1])
+```
+
+### List Output
+```{r}
+args_2 <- arglist(args, matrix = FALSE)
+
+callWith(survivals, args_2, alpha = alphas)
+callWith(survivals, args_2, alpha = alphas[1:2])
+callWith(survivals, args_2, alpha = alphas[1])
+
+```
+
+## Marginal Survival Curves
+
+```{r}
+args_3 <- arglist(args, marginal = TRUE, s = 0.1)
+
+callWith(survivals, args_3, alpha = alphas)
+callWith(survivals, args_3, alpha = alphas[1:2])
+callWith(survivals, args_3, alpha = alphas[1])
+
+args_4 <- arglist(args_3, t = 10)
+
+callWith(survivals, args_4, alpha = alphas)
+callWith(survivals, args_4, alpha = alphas[1:2])
+callWith(survivals, args_4, alpha = alphas[1])
+
+```

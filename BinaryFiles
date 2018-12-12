@@ -1,0 +1,8 @@
+inst/extdata/bin_unix/gompcal
+inst/extdata/bin_unix/gompred
+inst/extdata/bin_unix_home/gompcal
+inst/extdata/bin_unix_home/gompred
+inst/extdata/bin_win32/gompcal.exe
+inst/extdata/bin_win32/gompred.exe
+inst/extdata/bin_win32_kwb/gompcal.exe
+inst/extdata/bin_win32_kwb/gompred.exe
