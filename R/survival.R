@@ -1,4 +1,4 @@
-#' @useDynLib kwbGompitz
+#' @useDynLib kwbGompitz, .registration = TRUE
 #' @importFrom Rcpp sourceCpp
 NULL
 

@@ -289,6 +289,9 @@ plotPredictionForYear <- function(
 #'
 #' Order by most probable condition classes and decreasing probability
 #'
+#' @param probabilities maxtrix of numeric representing probabilities
+#' @noRd
+#' 
 .orderByMostProbClassAndDecreasingProb <- function(probabilities)
 {
   max.prob <- apply(probabilities, 1, max, na.rm = TRUE)
