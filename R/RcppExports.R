@@ -2,18 +2,18 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 c_survival <- function(alpha, offset) {
-    .Call('_kwbGompitz_c_survival', PACKAGE = 'kwbGompitz', alpha, offset)
+    .Call(`_kwbGompitz_c_survival`, alpha, offset)
 }
 
 c_limitToRange <- function(x, range) {
-    .Call('_kwbGompitz_c_limitToRange', PACKAGE = 'kwbGompitz', x, range)
+    .Call(`_kwbGompitz_c_limitToRange`, x, range)
 }
 
 c_survival_limit <- function(alpha, offset, range) {
-    .Call('_kwbGompitz_c_survival_limit', PACKAGE = 'kwbGompitz', alpha, offset, range)
+    .Call(`_kwbGompitz_c_survival_limit`, alpha, offset, range)
 }
 
 c_marginal_survival <- function(alpha, t, bz1, bz0, s) {
-    .Call('_kwbGompitz_c_marginal_survival', PACKAGE = 'kwbGompitz', alpha, t, bz1, bz0, s)
+    .Call(`_kwbGompitz_c_marginal_survival`, alpha, t, bz1, bz0, s)
 }
 
