@@ -1,0 +1,2 @@
+If you have trouble compiling the package, try this:
+devtools::load_all(recompile = TRUE)
