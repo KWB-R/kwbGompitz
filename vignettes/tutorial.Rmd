@@ -30,7 +30,11 @@ install.packages("remotes")
 auth_token <- "1aa89..."
 
 # Install the development version of package "kwbGompitz" from GitHub
-devtools::install_github("kwb-r/kwbGompitz@dev", auth_token = auth_token)
+devtools::install_github(
+  "kwb-r/kwbGompitz@dev", 
+  auth_token = auth_token, 
+  build_opts = c("--no-resave-data", "--no-manual")
+)
 ```
 
 ## Usage
