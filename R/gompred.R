@@ -35,7 +35,9 @@
 #' @param use.data.table if \code{TRUE}, \code{\link[data.table]{fread}} is used
 #'   to read the result file
 #' @export
-#'  
+#' @examples
+#' # For an example, see the Tutorial vignette "How to Use the Package"
+#' 
 runGompitzPrediction <- function(
   input.data, subset = NULL, calibration, strategy = 0, ..., verbose = 1, 
   do.stop = TRUE, clear.observations = TRUE, 
