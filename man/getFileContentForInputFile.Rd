@@ -5,7 +5,7 @@
 \title{Get file Content for Input File}
 \usage{
 getFileContentForInputFile(masterdata, covariates, covariates.status,
-  condition.labels, weight, sep)
+  condition.labels, weight, sep, file = NULL)
 }
 \arguments{
 \item{masterdata}{masterdata as returned by \code{\link{composeMasterData}}}
@@ -21,6 +21,9 @@ as many columns as there are covariates, containing the covariate values}
 \item{weight}{Weight of the pipeline for the calibration}
 
 \item{sep}{column separator}
+
+\item{file}{if a path to a file is given here, the content will be written
+to the file instead of returned by this function}
 }
 \description{
 Get file Content for Input File

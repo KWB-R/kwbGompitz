@@ -7,7 +7,7 @@
 runGompitzPrediction(input.data, subset = NULL, calibration,
   strategy = 0, ..., verbose = 1, do.stop = TRUE,
   clear.observations = TRUE, VERSION = getOperatingSystemType(),
-  use.data.table = FALSE)
+  use.data.table = getOption("kwbGompitz.use.data.table", FALSE))
 }
 \arguments{
 \item{input.data}{prepared input data as retrieved by

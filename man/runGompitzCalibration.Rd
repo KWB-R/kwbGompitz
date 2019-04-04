@@ -27,3 +27,59 @@ be executed. Possible values: "unix", "win32", "win32_kwb"}
 \description{
 Perform GompitZ Calibration
 }
+\examples{
+# Compose some fake data on sewer inspections. Multi-inspections are possible
+# (e.g. pipe "p1")
+inspections <- data.frame(
+cohort = c("main", "main", "main", "main", "main", "main"), 
+  pipe_id = c("p1", "p1", "p2", "p3", "p4", "p5"),
+  pipe_length = c(50, 50, 60, 55, 58, 53),
+  installation_year = as.integer(c(1940, 1940, 1960, 1980, 1950, 2000)),
+  inspection_year = as.integer(c(1960, 2000, 1990, 2000, 1985, 2005)),
+  condition = c("good", "bad", "good", "good", "bad", "good"),
+  stringsAsFactors = FALSE
+)
+
+# Just to verify that the fake data look reasonable: calculate the age
+inspections$age <- inspections$inspection_year - inspections$installation_year
+
+# Does that look reasonable? Pipes older than 30 years are in bad condition
+inspections
+
+# Select the columns that are required by the model
+masterdata <- kwbGompitz:::composeMasterData(
+  stratum = inspections$cohort,
+  pipeid = inspections$pipe_id, 
+  instyear = inspections$installation_year, 
+  inspyear = inspections$inspection_year, 
+  condition = inspections$condition
+)
+# Create a status matrix, as simple as possible:
+#
+# 1. no covariates
+# 2. length does not influence ageing
+#
+# See Gompitz User guide in "User guides, package vignettes and other 
+# documentation." for this package
+#
+status_matrix <- kwbGompitz::createStatusMatrix(
+  strata = unique(inspections$cohort),
+  covariates = c(pipe_length = 0)
+)
+
+# Compose the input data for the model
+input_data <- kwbGompitz::composeGompitzInputData(
+  masterdata = masterdata, 
+  covariates.status = status_matrix,
+  covariates = inspections[, "pipe_length", drop = FALSE],
+  weight = 1,
+  condition.labels = c("good", "bad")
+)
+
+# Calibrate the model
+calibration <- kwbGompitz::runGompitzCalibration(input.data = input_data)
+
+# Plot the survival curves for the only stratum "main"
+kwbGompitz::plot_survival_curves(calibration)
+
+}

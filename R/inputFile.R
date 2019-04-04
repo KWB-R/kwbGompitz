@@ -105,6 +105,8 @@ toStatusMatrix <- function(textlines, sep = ";", order_rows = FALSE)
 #' @param condition.labels condition labels
 #' @param weight Weight of the pipeline for the calibration
 #' @param sep column separator
+#' @param file if a path to a file is given here, the content will be written
+#'   to the file instead of returned by this function
 #' 
 getFileContentForInputFile <- function(
   masterdata, covariates, covariates.status, condition.labels, weight, sep,
