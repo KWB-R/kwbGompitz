@@ -39,11 +39,15 @@
 runGompitzPrediction <- function(
   input.data, subset = NULL, calibration, strategy = 0, ..., verbose = 1, 
   do.stop = TRUE, clear.observations = TRUE, 
-  VERSION = getOperatingSystemType(), use.data.table = FALSE
+  VERSION = getOperatingSystemType(), 
+  use.data.table = getOption("kwbGompitz.use.data.table", FALSE)
 )
 {
   #kwb.utils::assignPackageObjects("kwbGompitz")
   #kwb.utils::assignArgumentDefaults(kwbGompitz::runGompitzPrediction)
+  #input.data <- kwb.fakin:::restore("input.data")
+  #file <- system.file("extdata", "calibration_start_0_097_002_001.RData", package = "sema.berlin")
+  #calibration <- kwb.utils::loadObject(file, "calibration")
   
   sep <- ";"
 
@@ -100,19 +104,36 @@ runGompitzPrediction <- function(
   ))
 
   # Write the input file
-  time_write <- system.time(writeInputFile(
-    textlines = getFileContentForInputFile(
-      masterdata = input.data$masterdata,
-      covariates = input.data$covariates,
-      weight = input.data$weight,
-      covariates.status = input.data$covariates.status,
-      condition.labels = input.data$condition.labels,
-      sep = sep
-    ),
-    file = paths$input.file,
-    verbose = verbose
-  ))
+  time_write <- system.time(if (identical(use.data.table, 2L)) {
 
+    kwb.utils::catAndRun(
+      dbg = verbose, paste("Writing input file", paths$input.file),
+      getFileContentForInputFile(
+        masterdata = input.data$masterdata,
+        covariates = input.data$covariates,
+        weight = input.data$weight,
+        covariates.status = input.data$covariates.status,
+        condition.labels = input.data$condition.labels,
+        sep = sep,
+        file = paths$input.file
+      ))
+    
+  } else {
+    
+    writeInputFile(
+      textlines = getFileContentForInputFile(
+        masterdata = input.data$masterdata,
+        covariates = input.data$covariates,
+        weight = input.data$weight,
+        covariates.status = input.data$covariates.status,
+        condition.labels = input.data$condition.labels,
+        sep = sep
+      ),
+      file = paths$input.file,
+      verbose = verbose
+    )
+  })
+  
   # Write the strategy file
   content <- strategyFileContent(strategy, input.data = input.data, ...)
 
