@@ -37,6 +37,18 @@ devtools::install_github(
 )
 ```
 
+## GompitZ Model
+
+This package is a wrapper around the model GompitZ by Yves Le Gat. It is 
+explained in the Gompitz User's manual. A copy of this manual is contained in
+this package. You should be able to open it running the following commands:
+
+```{r eval = FALSE}
+path <- "extdata/GompitZ2_08UserGuideOct2011.pdf"
+
+system(paste(options()$pdfviewer, system.file(path, package = "kwbGompitz")))
+```
+
 ## Usage
 
 ### Provide Inspection Data
@@ -123,8 +135,7 @@ Create a status matrix, as simple as possible:
 1. no covariates
 2. length does not influence ageing
 
-See Gompitz User guide in "User guides, package vignettes and other 
-documentation." for this package.
+See the Gompitz User's Guide as described above.
 
 ```{r}
 status_matrix <- kwbGompitz::createStatusMatrix(
