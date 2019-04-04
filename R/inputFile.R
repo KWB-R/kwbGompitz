@@ -107,23 +107,29 @@ toStatusMatrix <- function(textlines, sep = ";", order_rows = FALSE)
 #' @param sep column separator
 #' 
 getFileContentForInputFile <- function(
-  masterdata, covariates, covariates.status, condition.labels, weight, sep
+  masterdata, covariates, covariates.status, condition.labels, weight, sep,
+  file = NULL
 )
 {
-  c(
-    inputFileHeader(
-      condition.labels = condition.labels,
-      covariates = covariates,
-      covariates.status = covariates.status,
-      sep = sep
-    ),
-    inputFileBody(
-      masterdata = masterdata,
-      covariates = covariates,
-      weight = weight,
-      sep = sep
-    )
+  header <- inputFileHeader(
+    condition.labels = condition.labels,
+    covariates = covariates,
+    covariates.status = covariates.status,
+    sep = sep
   )
+  
+  if (is.null(file)) {
+    
+    c(header, inputFileBody(masterdata, covariates, weight, sep))
+    
+  } else {
+    
+    writeLines(header, file)
+    
+    body <- cbind(masterdata, weight = weight, covariates)
+    
+    data.table::fwrite(body, file, append = TRUE, quote = FALSE, sep = sep)
+  }
 }
 
 # inputFileHeader --------------------------------------------------------------
@@ -218,9 +224,9 @@ prefixSelected <- function(x, selected, prefix = "_")
 inputFileBody <- function(masterdata, covariates, weight, sep)
 {
   body <- cbind(masterdata, weight = weight, covariates)
-
-  textlines <- apply(body, 1, FUN = function(x) {
-
+  
+  apply(body, 1, FUN = function(x) {
+    
     # Replace NA with "" and trim leading or trailing spaces
     kwb.utils::collapsed(kwb.utils::hsTrim(kwb.utils::defaultIfNA(x, "")), sep)
   })
