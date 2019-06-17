@@ -78,9 +78,6 @@ plot_survival_curves <- function(
     # Add ones to build the last area (worst observed condition in stratum)
     y[[rev(stratum_conditions)[1]]] <- rep(1, length(t))
 
-    # Define y tick positions
-    y_ticks <- seq(0, 1, 0.1)
-
     # We have to reverse the vectors of y values because plot_curve_areas_gg
     # puts the first vector to the lowest layer and the last vector to the
     # upmost layer
@@ -100,7 +97,9 @@ plot_survival_curves <- function(
 
 y_axis_percent <- function(by = 0.1, ...)
 {
+  # Define y tick positions
   at <- seq(0, 1, by)
+  
   ggplot2::scale_y_continuous(breaks = at, labels = paste(100 * at, "%"), ...)
 }
 
