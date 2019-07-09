@@ -269,11 +269,11 @@ differs <- function(x, y, digits)
 {
   if ((is.null(x) && ! is.null(y)) || 
       (is.null(y) && ! is.null(x))) {
-    return (FALSE)
+    return (TRUE)
   }
 
   if (length(x) != length(y)) {
-    return (FALSE)
+    return (TRUE)
   }
   
   fmt <- sprintf("%%0.%df", digits)
