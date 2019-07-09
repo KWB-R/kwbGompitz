@@ -101,7 +101,7 @@ writeInputFile <- function(textlines, file, verbose = 1)
 #' @param file_param full path to file \code{param.txt}
 #' @param digits passed to \code{kwbGompitz:::compareEstimates}
 #'
-getCalibration <- function(file_calib, file_param = NULL, digits = 3)
+getCalibration <- function(file_calib, file_param = NULL, digits = 4)
 {
   calibration <- readCalibration(kwb.utils::safePath(file_calib))
 
@@ -147,7 +147,7 @@ getCalibration <- function(file_calib, file_param = NULL, digits = 3)
 #'   \code{kwbGompitz:::readCalibration}
 #' @param parameters list structure as returned by
 #'   \code{kwbGompitz:::readParameters}
-#' @param digits round the estimates to this number of significant digits before
+#' @param digits round the estimates to this number of decimal digits before
 #'   comparing
 #' @param warn if \code{TRUE} (the default is \code{FALSE}) a warning is given
 #'   if the strata read from \code{calibr.txt} do not correspond to the strata
@@ -196,7 +196,7 @@ compareEstimates <- function(calibration, parameters, digits, warn = FALSE)
     estim1 <- .getEstimatesFromCalibration(calibration, stratum)
     estim2 <- .getEstimatesFromParameters(parameters, stratum)
 
-    if (.differs(x = estim1, y = estim2, digits)) {
+    if (differs(x = estim1, y = estim2, digits)) {
 
       n.warnings <- n.warnings + 1
 
@@ -263,20 +263,22 @@ checkConvergence <- function(calibration, do.warn = TRUE)
   get(get(get(parameters, "byStratum"), stratum), "estimates")
 }
 
-# .differs ---------------------------------------------------------------------
+# differs ----------------------------------------------------------------------
 
-.differs <- function(x, y, digits)
+differs <- function(x, y, digits)
 {
-  z <- FALSE
+  if ((is.null(x) && ! is.null(y)) || 
+      (is.null(y) && ! is.null(x))) {
+    return (FALSE)
+  }
 
-  z <- z || (  is.null(x) && ! is.null(y))
-  z <- z || (! is.null(x) &&   is.null(y))
-
-  rounded <- lapply(list(x = x, y = y), signif, digits = digits)
-
-  diffs <- abs(rounded$x - rounded$y)
-
-  z || ! all(diffs < 1e-10)
+  if (length(x) != length(y)) {
+    return (FALSE)
+  }
+  
+  fmt <- sprintf("%%0.%df", digits)
+  
+  any(sprintf(fmt, x) != sprintf(fmt, y))
 }
 
 #===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===
