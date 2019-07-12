@@ -51,8 +51,8 @@ runGompitzPrediction <- function(
   #file <- system.file("extdata", "calibration_start_0_097_002_001.RData", package = "sema.berlin")
   #calibration <- kwb.utils::loadObject(file, "calibration")
   
-  sep <- ";"
-
+  checkInputData(input.data)
+  
   target_dir <- dirname(getCalibrationFile(calibration))
 
   if (! file.exists(target_dir)) {
@@ -105,6 +105,9 @@ runGompitzPrediction <- function(
     ifelse(clear.observations, "are NOT", "ARE")
   ))
 
+  # Set the column separator
+  sep <- ";"
+  
   # Write the input file
   time_write <- system.time(if (identical(use.data.table, 2L)) {
 
