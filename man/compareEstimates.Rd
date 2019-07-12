@@ -13,8 +13,8 @@ compareEstimates(calibration, parameters, digits, warn = FALSE)
 \item{parameters}{list structure as returned by
 \code{kwbGompitz:::readParameters}}
 
-\item{digits}{round the estimates to this number of significant digits before
-comparing}
+\item{digits}{round the estimates to this number of significant (not 
+decimal!) digits before comparing}
 
 \item{warn}{if \code{TRUE} (the default is \code{FALSE}) a warning is given
 if the strata read from \code{calibr.txt} do not correspond to the strata

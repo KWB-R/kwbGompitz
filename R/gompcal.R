@@ -101,7 +101,7 @@ writeInputFile <- function(textlines, file, verbose = 1)
 #' @param file_param full path to file \code{param.txt}
 #' @param digits passed to \code{kwbGompitz:::compareEstimates}
 #'
-getCalibration <- function(file_calib, file_param = NULL, digits = 4)
+getCalibration <- function(file_calib, file_param = NULL, digits = 5)
 {
   calibration <- readCalibration(kwb.utils::safePath(file_calib))
 
@@ -147,8 +147,8 @@ getCalibration <- function(file_calib, file_param = NULL, digits = 4)
 #'   \code{kwbGompitz:::readCalibration}
 #' @param parameters list structure as returned by
 #'   \code{kwbGompitz:::readParameters}
-#' @param digits round the estimates to this number of decimal digits before
-#'   comparing
+#' @param digits round the estimates to this number of significant (not 
+#'   decimal!) digits before comparing
 #' @param warn if \code{TRUE} (the default is \code{FALSE}) a warning is given
 #'   if the strata read from \code{calibr.txt} do not correspond to the strata
 #'   read from \code{param.txt} (containing only the successfully calibrated
@@ -193,8 +193,8 @@ compareEstimates <- function(calibration, parameters, digits, warn = FALSE)
   #stratum <- strata.converged[1]
   for (stratum in strata.converged) {
 
-    estim1 <- .getEstimatesFromCalibration(calibration, stratum)
-    estim2 <- .getEstimatesFromParameters(parameters, stratum)
+    estim1 <- getEstimatesFromCalibration(calibration, stratum)
+    estim2 <- getEstimatesFromParameters(parameters, stratum)
 
     if (differs(x = estim1, y = estim2, digits)) {
 
@@ -243,9 +243,9 @@ checkConvergence <- function(calibration, do.warn = TRUE)
   converged
 }
 
-# .getEstimatesFromCalibration -------------------------------------------------
+# getEstimatesFromCalibration --------------------------------------------------
 
-.getEstimatesFromCalibration <- function(calibration, stratum)
+getEstimatesFromCalibration <- function(calibration, stratum)
 {
   get <- kwb.utils::selectElements
 
@@ -254,9 +254,9 @@ checkConvergence <- function(calibration, do.warn = TRUE)
   get(get(x, "estimates"), "Estimate")
 }
 
-# .getEstimatesFromParameters --------------------------------------------------
+# getEstimatesFromParameters ---------------------------------------------------
 
-.getEstimatesFromParameters <- function(parameters, stratum)
+getEstimatesFromParameters <- function(parameters, stratum)
 {
   get <- kwb.utils::selectElements
 
