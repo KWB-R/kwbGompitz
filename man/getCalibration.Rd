@@ -4,7 +4,7 @@
 \alias{getCalibration}
 \title{Get a full Calibration Object from File}
 \usage{
-getCalibration(file_calib, file_param = NULL, digits = 5)
+getCalibration(file_calib, file_param = NULL, digits = 4)
 }
 \arguments{
 \item{file_calib}{full path to calibration file \code{calibr.txt}}

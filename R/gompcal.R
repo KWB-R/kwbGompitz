@@ -101,7 +101,7 @@ writeInputFile <- function(textlines, file, verbose = 1)
 #' @param file_param full path to file \code{param.txt}
 #' @param digits passed to \code{kwbGompitz:::compareEstimates}
 #'
-getCalibration <- function(file_calib, file_param = NULL, digits = 5)
+getCalibration <- function(file_calib, file_param = NULL, digits = 4)
 {
   calibration <- readCalibration(kwb.utils::safePath(file_calib))
 
