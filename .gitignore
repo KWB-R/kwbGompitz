@@ -3,3 +3,7 @@ inst/doc
 .Rhistory
 .RData
 .Ruserdata
+inst/extdata/bin*
+inst/extdata/example*
+*.o
+*.dll
