@@ -63,8 +63,8 @@ createExampleFiles <- function()
 
   testdir <- tempGompitzDir()
   files <- c("obs.txt", paste0("ST", 0:2, ".txt"))
-  exampleFileUnix <- exampleFile(files, VERSION = "unix")
-  file.copy(exampleFileUnix, testdir)
+  example_files_unix <- exampleFile(files, VERSION = "unix")
+  file.copy(example_files_unix, testdir)
   #kwb.utils::hsOpenWindowsExplorer(testdir)
 
   os_type <- getOperatingSystemType()
@@ -76,7 +76,7 @@ createExampleFiles <- function()
   }
 
   # Reduce to versions for which a folder "bin_<version>" is available
-  bin_available <- dir(dirname(dirname(exampleFileUnix[1])), "^bin_")
+  bin_available <- dir(dirname(dirname(example_files_unix[1])), "^bin_")
   versions <- versions[paste0("bin_", versions) %in% bin_available]
   
   # Create all output files for the (different versions of) executable(s)
