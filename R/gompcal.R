@@ -9,7 +9,8 @@
 #' @param verbose verbosity level
 #' @param sep column separator
 #' @param digits round estimates read from calibr.txt and param.txt,
-#'   respectively, to this number of (significant) digits before comparing them
+#'   respectively, to this number of (significant) digits before comparing them.
+#'   Default: 4
 #' @param VERSION name of subdirectory in package containing the binary files to
 #'   be executed. Possible values: "unix", "win32", "win32_kwb"
 #'
@@ -18,7 +19,7 @@
 #' # For an example, see the Tutorial vignette "How to Use the Package"
 #' 
 runGompitzCalibration <- function(
-  input.data, subset = NULL, verbose = 1, sep = ";", digits = 3,
+  input.data, subset = NULL, verbose = 1, sep = ";", digits = 4,
   VERSION = getOperatingSystemType()
 )
 {
