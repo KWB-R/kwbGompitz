@@ -206,7 +206,8 @@ compareEstimates <- function(calibration, parameters, digits, warn = FALSE)
                 kwb.utils::collapsed(estim1)),
         sprintf("  differ from those read from 'param.txt'\n(%s)\n",
                 kwb.utils::collapsed(estim2)),
-        "for stratum ", kwb.utils::hsQuoteChr(stratum)
+        sprintf("for stratum '%s'. Number of significant digits compared: %d", 
+                stratum, digits)
       )
     }
   }
