@@ -10,7 +10,7 @@
 #' @param sep column separator
 #' @param digits round estimates read from calibr.txt and param.txt,
 #'   respectively, to this number of (significant) digits before comparing them.
-#'   Default: 4
+#'   Default: 3
 #' @param VERSION name of subdirectory in package containing the binary files to
 #'   be executed. Possible values: "unix", "win32", "win32_kwb"
 #'
@@ -19,7 +19,7 @@
 #' # For an example, see the Tutorial vignette "How to Use the Package"
 #' 
 runGompitzCalibration <- function(
-  input.data, subset = NULL, verbose = 1, sep = ";", digits = 4,
+  input.data, subset = NULL, verbose = 1, sep = ";", digits = 3,
   VERSION = getOperatingSystemType()
 )
 {
@@ -102,7 +102,7 @@ writeInputFile <- function(textlines, file, verbose = 1)
 #' @param file_param full path to file \code{param.txt}
 #' @param digits passed to \code{kwbGompitz:::compareEstimates}
 #'
-getCalibration <- function(file_calib, file_param = NULL, digits = 4)
+getCalibration <- function(file_calib, file_param = NULL, digits = 3)
 {
   calibration <- readCalibration(kwb.utils::safePath(file_calib))
 
