@@ -11,6 +11,8 @@
 #' @param strategy strategy identifier. Must be one of 0 (do nothing), 1
 #'   (length-driven strategy), 2 (budget-driven strategy), or 3 (optimised
 #'   strategy).")
+#' @param no.iff logical whether to let Gompitz use iff values 
+#'   (\code{no.iff = FALSE}, the default) or not (\code{no.iff = TRUE})
 #' @param \dots arguments passed to the corresponding
 #'   \code{.fileContentStrategy} functions, such as \code{range.years}
 #'   (two-element vector with first and last year of prediction),
@@ -39,8 +41,8 @@
 #' # For an example, see the Tutorial vignette "How to Use the Package"
 #' 
 runGompitzPrediction <- function(
-  input.data, subset = NULL, calibration, strategy = 0, ..., verbose = 1, 
-  do.stop = TRUE, clear.observations = TRUE, 
+  input.data, subset = NULL, calibration, strategy = 0, no.iff = FALSE, ..., 
+  verbose = 1, do.stop = TRUE, clear.observations = TRUE, 
   VERSION = getOperatingSystemType(), 
   use.data.table = getOption("kwbGompitz.use.data.table", FALSE)
 )
@@ -156,6 +158,7 @@ runGompitzPrediction <- function(
     input.file = paths$input.file,
     sep = sep,
     strategy = strategy,
+    no.iff = no.iff,
     verbose = verbose,
     VERSION = VERSION
   ))

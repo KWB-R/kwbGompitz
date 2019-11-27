@@ -5,7 +5,7 @@
 \title{Run Gompitz Predicion}
 \usage{
 runGompitzPrediction(input.data, subset = NULL, calibration,
-  strategy = 0, ..., verbose = 1, do.stop = TRUE,
+  strategy = 0, no.iff = FALSE, ..., verbose = 1, do.stop = TRUE,
   clear.observations = TRUE, VERSION = getOperatingSystemType(),
   use.data.table = getOption("kwbGompitz.use.data.table", FALSE))
 }
@@ -22,6 +22,9 @@ if \code{NULL}, all rows in \code{input.data} will be used.}
 \item{strategy}{strategy identifier. Must be one of 0 (do nothing), 1
 (length-driven strategy), 2 (budget-driven strategy), or 3 (optimised
 strategy).")}
+
+\item{no.iff}{logical whether to let Gompitz use iff values 
+(\code{no.iff = FALSE}, the default) or not (\code{no.iff = TRUE})}
 
 \item{\dots}{arguments passed to the corresponding
 \code{.fileContentStrategy} functions, such as \code{range.years}

@@ -5,7 +5,8 @@
 \title{Run gompred.exe in given Directory}
 \usage{
 runGompredInDirectory(target.dir = tempdir(),
-  input.file = exampleFile("obs.txt"), sep = ";", strategy = 0, ...)
+  input.file = exampleFile("obs.txt"), sep = ";", strategy = 0,
+  no.iff = FALSE, ...)
 }
 \arguments{
 \item{target.dir}{path to target directory}
@@ -15,6 +16,9 @@ runGompredInDirectory(target.dir = tempdir(),
 \item{sep}{column separator}
 
 \item{strategy}{integer number specifying the strategy to be applied}
+
+\item{no.iff}{logical whether to let Gompitz use iff values 
+(\code{no.iff = FALSE}, the default) or not (\code{no.iff = TRUE})}
 
 \item{\dots}{arguments that are passed to .runModuleInDirectory, such as
 \code{verbose} or \code{show.error}}
