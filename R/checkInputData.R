@@ -17,7 +17,7 @@ checkInputData <- function(input.data)
     "stratum", "pipeid", "instyear", "inspyear", "condition"
   ))
   
-  stopifnot(all(na.omit(masterdata$condition) %in% condition_labels))
+  stopifnot(all(stats::na.omit(masterdata$condition) %in% condition_labels))
   
   kwb.utils::stopIfNotMatrix(covariates_status)
   
