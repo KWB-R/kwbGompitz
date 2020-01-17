@@ -1,6 +1,13 @@
 Changes in development version
 ============================
+* new: checkInputData()
+* createExampleFiles(): create output files only for existing binary versions
+* improve error handling
+* rename further functions whose names start with dot
 * fix bug in get_default_colours_for_labels()
+* add argument "digits_exp" to readParameters() and writeParameters()
+
+Add new function reformatScientific().
 
 Changes in kwb.gompitz 0.6.1
 ============================
@@ -9,14 +16,14 @@ Changes in kwb.gompitz 0.6.1
   condition labels when getting unique values from the condition column. Convert
   condition labels from factor to character.
 
-* rename functions whose name start with dot so that the functions will be 
+* rename functions whose names start with dot so that the functions will be 
   loaded into the global environment when kwb.utils::assignPackageObjects()
   is called. 
 
 Changes in kwb.gompitz 0.1.7
 ============================
 * .getParameterEstimates: if data frame does not have five columns, NA is 
-  returned (suggested by NC)
+  returned (suggested by Nicolas Caradot)
 
 Changes in kwb.gompitz 0.1.6
 ============================
