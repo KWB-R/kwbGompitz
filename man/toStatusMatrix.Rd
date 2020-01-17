@@ -16,8 +16,8 @@ input file header (only the lines defining the status matrix)}
 name}
 }
 \description{
-Convert text lines to status matrix as required by 
-\code{\link[kwb.rsproto]{configure}}
+Convert text lines to status matrix, as e.g. required by 
+\code{kwb.rsproto::configure}
 }
 \examples{
 \dontrun{

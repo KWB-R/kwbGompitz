@@ -8,7 +8,7 @@ Suggests:
     data.table,
     gridExtra,
     knitr,
-    kwb.plot (>= 0.4),
+    kwb.plot,
     manipulate,
     microbenchmark,
     rmarkdown,
