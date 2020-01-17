@@ -1,6 +1,13 @@
 Changes in development version
 ============================
+* new: checkInputData()
+* createExampleFiles(): create output files only for existing binary versions
+* improve error handling
+* rename functions whose names start with dot
 * fix bug in get_default_colours_for_labels()
+* add argument "digits_exp" to readParameters() and writeParameters()
+
+Add new function reformatScientific().
 
 Changes in kwb.gompitz 0.6.1
 ============================
