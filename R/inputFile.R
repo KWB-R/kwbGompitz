@@ -57,8 +57,8 @@ readObservations <- function(
 
 #' Convert Text Lines to Status Matrix
 #'
-#' Convert text lines to status matrix as required by 
-#' \code{\link[kwb.rsproto]{configure}}
+#' Convert text lines to status matrix, as e.g. required by 
+#' \code{kwb.rsproto::configure}
 #'
 #' @param textlines vector of character linees as they appear in the GompitZ
 #'   input file header (only the lines defining the status matrix)

@@ -19,7 +19,8 @@ calibration. If \code{NULL} (default), all rows are used.}
 \item{sep}{column separator}
 
 \item{digits}{round estimates read from calibr.txt and param.txt,
-respectively, to this number of (significant) digits before comparing them}
+respectively, to this number of (significant) digits before comparing them.
+Default: 3}
 
 \item{VERSION}{name of subdirectory in package containing the binary files to
 be executed. Possible values: "unix", "win32", "win32_kwb"}

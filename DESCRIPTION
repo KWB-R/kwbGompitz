@@ -8,13 +8,13 @@ Suggests:
     data.table,
     gridExtra,
     knitr,
-    kwb.plot (>= 0.4),
+    kwb.plot,
     manipulate,
     microbenchmark,
     rmarkdown,
     testthat
 Author: Hauke Sonnenberg
-Version: 0.6.4
+Version: 0.6.4.9000
 Remotes: 
     github::kwb-r/kwb.utils,
     github::kwb-r/kwb.plot

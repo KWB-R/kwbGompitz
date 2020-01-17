@@ -9,7 +9,8 @@
 #' @param verbose verbosity level
 #' @param sep column separator
 #' @param digits round estimates read from calibr.txt and param.txt,
-#'   respectively, to this number of (significant) digits before comparing them
+#'   respectively, to this number of (significant) digits before comparing them.
+#'   Default: 3
 #' @param VERSION name of subdirectory in package containing the binary files to
 #'   be executed. Possible values: "unix", "win32", "win32_kwb"
 #'
@@ -147,8 +148,8 @@ getCalibration <- function(file_calib, file_param = NULL, digits = 3)
 #'   \code{kwbGompitz:::readCalibration}
 #' @param parameters list structure as returned by
 #'   \code{kwbGompitz:::readParameters}
-#' @param digits round the estimates to this number of significant digits before
-#'   comparing
+#' @param digits round the estimates to this number of significant (not 
+#'   decimal!) digits before comparing
 #' @param warn if \code{TRUE} (the default is \code{FALSE}) a warning is given
 #'   if the strata read from \code{calibr.txt} do not correspond to the strata
 #'   read from \code{param.txt} (containing only the successfully calibrated
@@ -193,10 +194,10 @@ compareEstimates <- function(calibration, parameters, digits, warn = FALSE)
   #stratum <- strata.converged[1]
   for (stratum in strata.converged) {
 
-    estim1 <- .getEstimatesFromCalibration(calibration, stratum)
-    estim2 <- .getEstimatesFromParameters(parameters, stratum)
+    estim1 <- getEstimatesFromCalibration(calibration, stratum)
+    estim2 <- getEstimatesFromParameters(parameters, stratum)
 
-    if (.differs(x = estim1, y = estim2, digits)) {
+    if (differs(x = estim1, y = estim2, digits)) {
 
       n.warnings <- n.warnings + 1
 
@@ -205,7 +206,8 @@ compareEstimates <- function(calibration, parameters, digits, warn = FALSE)
                 kwb.utils::collapsed(estim1)),
         sprintf("  differ from those read from 'param.txt'\n(%s)\n",
                 kwb.utils::collapsed(estim2)),
-        "for stratum ", kwb.utils::hsQuoteChr(stratum)
+        sprintf("for stratum '%s'. Number of significant digits compared: %d", 
+                stratum, digits)
       )
     }
   }
@@ -243,9 +245,9 @@ checkConvergence <- function(calibration, do.warn = TRUE)
   converged
 }
 
-# .getEstimatesFromCalibration -------------------------------------------------
+# getEstimatesFromCalibration --------------------------------------------------
 
-.getEstimatesFromCalibration <- function(calibration, stratum)
+getEstimatesFromCalibration <- function(calibration, stratum)
 {
   get <- kwb.utils::selectElements
 
@@ -254,36 +256,38 @@ checkConvergence <- function(calibration, do.warn = TRUE)
   get(get(x, "estimates"), "Estimate")
 }
 
-# .getEstimatesFromParameters --------------------------------------------------
+# getEstimatesFromParameters ---------------------------------------------------
 
-.getEstimatesFromParameters <- function(parameters, stratum)
+getEstimatesFromParameters <- function(parameters, stratum)
 {
   get <- kwb.utils::selectElements
 
   get(get(get(parameters, "byStratum"), stratum), "estimates")
 }
 
-# .differs ---------------------------------------------------------------------
+# differs ----------------------------------------------------------------------
 
-.differs <- function(x, y, digits)
+differs <- function(x, y, digits)
 {
-  z <- FALSE
+  if ((is.null(x) && ! is.null(y)) || 
+      (is.null(y) && ! is.null(x))) {
+    return (TRUE)
+  }
 
-  z <- z || (  is.null(x) && ! is.null(y))
-  z <- z || (! is.null(x) &&   is.null(y))
-
-  rounded <- lapply(list(x = x, y = y), signif, digits = digits)
-
-  diffs <- abs(rounded$x - rounded$y)
-
-  z || ! all(diffs < 1e-10)
+  if (length(x) != length(y)) {
+    return (TRUE)
+  }
+  
+  fmt <- sprintf("%%0.%dg", digits)
+  
+  any(sprintf(fmt, x) != sprintf(fmt, y))
 }
 
-#===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===
+#==============================================================================#
 #
 # Functions to retrieve information from a gompitz calibration
 #
-#===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===
+#==============================================================================#
 
 # .getObservationByCondition ---------------------------------------------------
 

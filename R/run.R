@@ -32,10 +32,37 @@ runGompredInDirectory <- function(
   strategy = 0, ...
 )
 {
-  .runModuleInDirectory(
+  error_code <- .runModuleInDirectory(
     "gompred", target.dir, input.file, sep, ..., 
     options = as.character(strategy)
   )
+
+  # Check the output for an error message  
+  filename <- kwb.utils::getAttribute(error_code, "stdout")
+  
+  file_stdout <- kwb.utils::safePath(target.dir, filename)
+  
+  lines_stdout <- readLines(file_stdout)
+  
+  # "No valid data rows - Gompred stops processing"
+  if (length(grep("Gompred stops processing", lines_stdout))) {
+    
+    log_dir <- dirname(file_stdout)
+    
+    if (grepl("win", getOperatingSystemType())) {
+      log_dir <- kwb.utils::windowsPath(log_dir)
+    } 
+    
+    msg_stopped <- "Gompred stopped processing!"
+    
+    message(sprintf(
+      "\n\n%s See '%s' in '%s':\n", msg_stopped, basename(file_stdout), log_dir
+    ))
+    
+    writeLines(lines_stdout)
+    
+    stop_(msg_stopped, " See the output above for possible reasons.")
+  }
 }
 
 # .runModuleInDirectory --------------------------------------------------------
@@ -48,7 +75,7 @@ runGompredInDirectory <- function(
   # We need a log folder within the target directory
   kwb.utils::createDirectory(file.path(target.dir, "log"), dbg = FALSE)
 
-  errorCode <- kwb.utils::runInDirectory(
+  error_code <- kwb.utils::runInDirectory(
     target.dir = target.dir,
     FUN = .runModule,
     module = module,
@@ -59,12 +86,12 @@ runGompredInDirectory <- function(
     .dbg = (verbose > 1)
   )
 
-  if (show.error && errorCode != 0) {
+  if (show.error && error_code != 0) {
 
-    stderr <- attr(errorCode, "stderr")
-
+    stderr <- kwb.utils::getAttribute(error_code, "stderr")
+    
     messageLines <- c(
-      paste0("There was an error (errorCode: ", errorCode, ") given below. ",
+      paste0("There was an error (error_code: ", error_code, ") given below. ",
              "Please inspect the input file (opened in your text editor?):"),
       input.file,
       "*****",
@@ -72,19 +99,27 @@ runGompredInDirectory <- function(
       "*****"
     )
 
-    if (grepl("^unix", getOperatingSystemType())) {
-      
-      kwb.utils::hsOpenWindowsExplorer(input.file)
-    }
+    open_file_if_not_on_unix(file = input.file)
 
     stop_(kwb.utils::collapsed(messageLines, "\n"))
+  }
+
+  # Return error code having files containing stdout and stderr as attributes 
+  error_code
+}
+
+# open_file_if_not_on_unix -----------------------------------------------------
+open_file_if_not_on_unix <- function(file)
+{
+  if (! grepl("^unix", getOperatingSystemType())) {
+    
+    kwb.utils::hsOpenWindowsExplorer(file)
   }
 }
 
 # .runModule -------------------------------------------------------------------
 
-.runModule <- function
-(
+.runModule <- function (
   module, input.file, sep, verbose = 1, options = NULL, qchar = "'", ...
 )
 {
@@ -107,11 +142,11 @@ runGompredInDirectory <- function(
   .catLogMessageIf(verbose > 1, sprintf("command: '%s'\n", command))
   kwb.utils::printIf(verbose > 1, args)
 
-  errorCode <- system2(command, args, stdout = files[1], stderr = files[2])
+  error_code <- system2(command, args, stdout = files[1], stderr = files[2])
 
   .catLogMessageIf(verbose > 0, paste0("Back from ", module, "."))
 
-  structure(errorCode, stdout = files[1], stderr = files[2])
+  structure(error_code, stdout = files[1], stderr = files[2])
 }
 
 # set_mode_executable ----------------------------------------------------------
