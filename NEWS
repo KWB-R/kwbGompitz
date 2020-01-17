@@ -1,3 +1,7 @@
+Changes in development version
+============================
+* fix bug in get_default_colours_for_labels()
+
 Changes in kwb.gompitz 0.6.1
 ============================
 * composeGompitzInputData: by default, give a message instead of a warning when 
