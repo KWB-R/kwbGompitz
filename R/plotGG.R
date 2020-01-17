@@ -364,7 +364,7 @@ gg_stacked_bars <- function(
 # get_default_colours_for_labels -----------------------------------------------
 get_default_colours_for_labels <- function(condition_labels)
 {
-  n <- length(labels)
+  n <- length(condition_labels)
   
   if (n == 4) {
     
