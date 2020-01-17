@@ -5,7 +5,7 @@
 \title{Write Calibration Parameters to File}
 \usage{
 writeParameters(parameters, file, sep = ";", dbg = TRUE,
-  warn = FALSE)
+  warn = FALSE, digits_exp = 2L)
 }
 \arguments{
 \item{parameters}{list structure containing calibration parameters as
@@ -19,6 +19,8 @@ provided by \code{kwbGompitz:::readParameters}}
 
 \item{warn}{if \code{TRUE} a message is shown that the existing parameter
 file was overwritten}
+
+\item{digits_exp}{passed to \code{\link{parameterLines}}}
 }
 \description{
 Write Calibration Parameters to File

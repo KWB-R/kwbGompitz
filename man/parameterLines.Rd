@@ -4,13 +4,16 @@
 \alias{parameterLines}
 \title{Generate text lines for param.txt}
 \usage{
-parameterLines(parameters, sep = ";")
+parameterLines(parameters, sep = ";", digits_exp = 2L)
 }
 \arguments{
 \item{parameters}{list structure containing calibration parameters as
 provided by \code{kwbGompitz:::readParameters}}
 
 \item{sep}{column separator. Default: ";"}
+
+\item{digits_exp}{number of exponent digits in scientific notation, such as
+"1.23e+01" (digits_exp = 2L, the default) or "1.23e+001" (digits_exp = 3L)}
 }
 \value{
 vector of character representing the lines of param.txt, containing
