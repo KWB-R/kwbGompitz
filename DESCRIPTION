@@ -14,7 +14,7 @@ Suggests:
     rmarkdown,
     testthat
 Author: Hauke Sonnenberg
-Version: 0.6.4.9000
+Version: 0.7.0
 Remotes: 
     github::kwb-r/kwb.utils,
     github::kwb-r/kwb.plot

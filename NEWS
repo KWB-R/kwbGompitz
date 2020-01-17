@@ -1,4 +1,4 @@
-Changes in development version
+Changes in kwb.gompitz 0.7.0
 ============================
 * new: checkInputData()
 * createExampleFiles(): create output files only for existing binary versions
