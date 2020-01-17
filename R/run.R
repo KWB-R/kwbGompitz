@@ -24,17 +24,19 @@ runGompcalInDirectory <- function(
 #' @param input.file path to input file
 #' @param sep column separator
 #' @param strategy integer number specifying the strategy to be applied
+#' @param no.iff logical whether to let Gompitz use iff values 
+#'   (\code{no.iff = FALSE}, the default) or not (\code{no.iff = TRUE})
 #' @param \dots arguments that are passed to .runModuleInDirectory, such as
 #'   \code{verbose} or \code{show.error}
 #' 
 runGompredInDirectory <- function(
   target.dir = tempdir(), input.file = exampleFile("obs.txt"), sep = ";",
-  strategy = 0, ...
+  strategy = 0, no.iff = FALSE, ...
 )
 {
   error_code <- .runModuleInDirectory(
     "gompred", target.dir, input.file, sep, ..., 
-    options = as.character(strategy)
+    options = c(as.character(strategy), if (no.iff) "1" else NULL)
   )
 
   # Check the output for an error message  
@@ -140,6 +142,7 @@ open_file_if_not_on_unix <- function(file)
   files <- file.path("log", sprintf("%s_%s.txt", module, c("out", "err")))
 
   .catLogMessageIf(verbose > 1, sprintf("command: '%s'\n", command))
+  
   kwb.utils::printIf(verbose > 1, args)
 
   error_code <- system2(command, args, stdout = files[1], stderr = files[2])
