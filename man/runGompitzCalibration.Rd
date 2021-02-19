@@ -4,8 +4,14 @@
 \alias{runGompitzCalibration}
 \title{Perform GompitZ Calibration}
 \usage{
-runGompitzCalibration(input.data, subset = NULL, verbose = 1,
-  sep = ";", digits = 3, VERSION = getOperatingSystemType())
+runGompitzCalibration(
+  input.data,
+  subset = NULL,
+  verbose = 1,
+  sep = ";",
+  digits = 3,
+  VERSION = getOperatingSystemType()
+)
 }
 \arguments{
 \item{input.data}{prepared input data as retrieved by

@@ -4,8 +4,14 @@
 \alias{writeParameters}
 \title{Write Calibration Parameters to File}
 \usage{
-writeParameters(parameters, file, sep = ";", dbg = TRUE,
-  warn = FALSE, digits_exp = 2L)
+writeParameters(
+  parameters,
+  file,
+  sep = ";",
+  dbg = TRUE,
+  warn = FALSE,
+  digits_exp = 2L
+)
 }
 \arguments{
 \item{parameters}{list structure containing calibration parameters as

@@ -4,8 +4,15 @@
 \alias{getFileContentForInputFile}
 \title{Get file Content for Input File}
 \usage{
-getFileContentForInputFile(masterdata, covariates, covariates.status,
-  condition.labels, weight, sep, file = NULL)
+getFileContentForInputFile(
+  masterdata,
+  covariates,
+  covariates.status,
+  condition.labels,
+  weight,
+  sep,
+  file = NULL
+)
 }
 \arguments{
 \item{masterdata}{masterdata as returned by \code{\link{composeMasterData}}}

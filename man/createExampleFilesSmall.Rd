@@ -4,10 +4,13 @@
 \alias{createExampleFilesSmall}
 \title{Create smaller versions of the example files}
 \usage{
-createExampleFilesSmall(parts = c(2, 4, 8, 16), version = c("unix",
-  "unix_home", "win32", "win32_kwb")[ifelse(kwb.utils::.OStype() == "unix",
-  1, 3)], types = c("obs", "predict0", "predict1", "predict2", "iff"),
-  targetdir = NULL)
+createExampleFilesSmall(
+  parts = c(2, 4, 8, 16),
+  version = c("unix", "unix_home", "win32", "win32_kwb")[ifelse(kwb.utils::.OStype() ==
+    "unix", 1, 3)],
+  types = c("obs", "predict0", "predict1", "predict2", "iff"),
+  targetdir = NULL
+)
 }
 \arguments{
 \item{parts}{vector of integer determining the parts of the files to be

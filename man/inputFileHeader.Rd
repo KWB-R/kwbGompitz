@@ -4,8 +4,7 @@
 \alias{inputFileHeader}
 \title{Calibration Input File Header}
 \usage{
-inputFileHeader(condition.labels, covariates, covariates.status,
-  sep = ";")
+inputFileHeader(condition.labels, covariates, covariates.status, sep = ";")
 }
 \arguments{
 \item{condition.labels}{condition labels}

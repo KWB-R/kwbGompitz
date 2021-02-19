@@ -4,8 +4,7 @@
 \alias{readObservations}
 \title{Read Observation Data from File in GompitZ-Format}
 \usage{
-readObservations(file = exampleFile("obs.txt"), sep = ";",
-  dbg = TRUE)
+readObservations(file = exampleFile("obs.txt"), sep = ";", dbg = TRUE)
 }
 \arguments{
 \item{file}{full path to text file in the format that is required by GompitZ

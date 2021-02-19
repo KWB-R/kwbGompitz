@@ -4,9 +4,15 @@
 \alias{gg_stacked_bars}
 \title{Generate gg-plot of stacked Bars}
 \usage{
-gg_stacked_bars(data, relative = TRUE, labels = FALSE,
+gg_stacked_bars(
+  data,
+  relative = TRUE,
+  labels = FALSE,
   legend = c("bottom", "left", "top", "right", "none")[5],
-  reverse = TRUE, lng = "en", colours = NULL)
+  reverse = TRUE,
+  lng = "en",
+  colours = NULL
+)
 }
 \arguments{
 \item{data}{data frame with columns \code{length.abs} (absolute pipe length

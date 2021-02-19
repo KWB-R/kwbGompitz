@@ -4,8 +4,10 @@
 \alias{getCalibrationParameters}
 \title{Get parameters from Calibration Object}
 \usage{
-getCalibrationParameters(calibration = exampleCalibration(),
-  remove_non_calibrated = TRUE)
+getCalibrationParameters(
+  calibration = exampleCalibration(),
+  remove_non_calibrated = TRUE
+)
 }
 \arguments{
 \item{calibration}{calibration object as returned by

@@ -4,8 +4,11 @@
 \alias{plotPrediction}
 \title{Plot the Result of a Prediction}
 \usage{
-plotPrediction(prediction, legend_pos = c("bottom", "left", "top",
-  "right", "none")[5], do_print = TRUE)
+plotPrediction(
+  prediction,
+  legend_pos = c("bottom", "left", "top", "right", "none")[5],
+  do_print = TRUE
+)
 }
 \arguments{
 \item{prediction}{data frame with columns \code{prob1}, \code{prob2}, ...,
