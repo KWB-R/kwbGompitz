@@ -4,10 +4,17 @@
 \alias{createStatusMatrix}
 \title{Default Covariate Status Matrix}
 \usage{
-createStatusMatrix(strata = NULL, covariateNames = NULL,
-  default.other = 3, default.length = 0, covariates = "Length_num",
-  Data = NULL, column.strata = "Material_cat", column.length = NULL,
-  note = TRUE)
+createStatusMatrix(
+  strata = NULL,
+  covariateNames = NULL,
+  default.other = 3,
+  default.length = 0,
+  covariates = "Length_num",
+  Data = NULL,
+  column.strata = "Material_cat",
+  column.length = NULL,
+  note = TRUE
+)
 }
 \arguments{
 \item{strata}{names of strata (e.g. unique values in column \emph{stratum} of

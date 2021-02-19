@@ -4,8 +4,17 @@
 \alias{survivals_original}
 \title{Get Values of (Standard or Marginal) Survival Curves}
 \usage{
-survivals_original(t = 0:99, alpha, bz1, bz0, s = NULL,
-  marginal = !is.null(s), matrix = TRUE, set_attributes = FALSE, ...)
+survivals_original(
+  t = 0:99,
+  alpha,
+  bz1,
+  bz0,
+  s = NULL,
+  marginal = !is.null(s),
+  matrix = TRUE,
+  set_attributes = FALSE,
+  ...
+)
 }
 \arguments{
 \item{t}{numeric vector of times (ages)}

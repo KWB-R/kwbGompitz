@@ -4,8 +4,14 @@
 \alias{multiplot_survival}
 \title{Plot several Survival Curves}
 \usage{
-multiplot_survival(t, alpha = 0, bz0 = 0, bz1 = 0, span = rep(TRUE,
-  3), theme = ggplot2::theme_bw())
+multiplot_survival(
+  t,
+  alpha = 0,
+  bz0 = 0,
+  bz1 = 0,
+  span = rep(TRUE, 3),
+  theme = ggplot2::theme_bw()
+)
 }
 \arguments{
 \item{t}{vector of times for which to calculate the survival curves}

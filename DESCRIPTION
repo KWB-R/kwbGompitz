@@ -1,8 +1,17 @@
 Package: kwbGompitz
-Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
+Title: Interface to GompitZ Tool for Modelling the Degradation
+    of Sewer Pipelines
+Version: 0.6.4.9000
+Author: Hauke Sonnenberg
+Maintainer: Hauke Sonnenberg
+    <hauke.sonnenberg@kompetenz-wasser.de>
+Description: Functions enabling the writing of GompitZ input
+    files, running of GompitZ Tools (gompcal.exe, gompred.exe) and reading
+    of GompitZ output files.
+License: GPL
 Imports: 
     ggplot2,
-    kwb.utils (>= 0.4), 
+    kwb.utils (>= 0.4),
     Rcpp
 Suggests: 
     data.table,
@@ -13,15 +22,11 @@ Suggests:
     microbenchmark,
     rmarkdown,
     testthat
-Author: Hauke Sonnenberg
-Version: 0.6.4.9000
+LinkingTo: 
+    Rcpp
+VignetteBuilder: 
+    knitr
 Remotes: 
     github::kwb-r/kwb.utils,
     github::kwb-r/kwb.plot
-License: GPL
-Title: Interface to GompitZ Tool for Modelling the Degradation of Sewer Pipelines
-Description: Functions enabling the writing of GompitZ input files, running of 
-    GompitZ Tools (gompcal.exe, gompred.exe) and reading of GompitZ output files.
-RoxygenNote: 6.1.1
-VignetteBuilder: knitr
-LinkingTo: Rcpp
+RoxygenNote: 7.1.1

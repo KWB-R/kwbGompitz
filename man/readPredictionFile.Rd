@@ -4,8 +4,11 @@
 \alias{readPredictionFile}
 \title{Read Prediction Result File}
 \usage{
-readPredictionFile(file, sep = ";",
-  stringsAsFactors = default.stringsAsFactors())
+readPredictionFile(
+  file,
+  sep = ";",
+  stringsAsFactors = default.stringsAsFactors()
+)
 }
 \arguments{
 \item{file}{full path to prediction result file (predict<n>.txt) with <n>

@@ -4,8 +4,7 @@
 \alias{parameterplot}
 \title{Plot multiple Survival Curves}
 \usage{
-parameterplot(t, alpha = 0, bz0 = 0, bz1 = 0, xlim = c(0, 1.2 *
-  max(t)))
+parameterplot(t, alpha = 0, bz0 = 0, bz1 = 0, xlim = c(0, 1.2 * max(t)))
 }
 \arguments{
 \item{t}{vector of times for which to calculate the survival curves}

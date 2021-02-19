@@ -4,8 +4,12 @@
 \alias{plotPredictionByYear}
 \title{Plot Prediction by Year to temp. PDF File}
 \usage{
-plotPredictionByYear(prediction, to.pdf = TRUE,
-  FUN.name = "orderByWeightedProbabilities", column.year = "year")
+plotPredictionByYear(
+  prediction,
+  to.pdf = TRUE,
+  FUN.name = "orderByWeightedProbabilities",
+  column.year = "year"
+)
 }
 \arguments{
 \item{prediction}{prediction result as provided by e.g.

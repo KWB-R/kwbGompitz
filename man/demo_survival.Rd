@@ -4,8 +4,13 @@
 \alias{demo_survival}
 \title{Interactive Plot of Survival Curves}
 \usage{
-demo_survival(t = 1:100, alpha.0 = -1.15, bz0.0 = -0.88,
-  bz1.0 = -2.77, theme = ggplot2::theme_bw())
+demo_survival(
+  t = 1:100,
+  alpha.0 = -1.15,
+  bz0.0 = -0.88,
+  bz1.0 = -2.77,
+  theme = ggplot2::theme_bw()
+)
 }
 \arguments{
 \item{t}{vector of times at which to calculate the survival curves}

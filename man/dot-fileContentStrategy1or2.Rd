@@ -4,8 +4,7 @@
 \alias{.fileContentStrategy1or2}
 \title{File Content for Strategy 1 or 2}
 \usage{
-.fileContentStrategy1or2(rehabilitation.costs,
-  annual.total.length.or.budget)
+.fileContentStrategy1or2(rehabilitation.costs, annual.total.length.or.budget)
 }
 \arguments{
 \item{rehabilitation.costs}{list of rehabilitation costs per condition. The
