@@ -23,6 +23,9 @@ jobs:
       matrix:
         config:
           - {os: windows-latest, r: '3.6.2'}
+          - {os: windows-latest, r: 'devel'}
+          - {os: windows-latest, r: 'oldrel'}
+          - {os: windows-latest, r: 'release'}
 
     env:
       GITHUB_PAT: ${{ secrets.MY_GITHUB_PAT }}
