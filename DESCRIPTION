@@ -22,11 +22,11 @@ Imports:
     kwb.plot,
     kwb.utils,
     manipulate,
+    microbenchmark,
     Rcpp
 Suggests: 
     gridExtra,
     knitr,
-    microbenchmark,
     rmarkdown,
     testthat
 LinkingTo: 
