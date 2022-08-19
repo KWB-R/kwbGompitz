@@ -33,6 +33,6 @@ remotes::install_github("KWB-R/kwbGompitz")
 
 ## Documentation
 
-Release: [https://kwb-r.github.io/kwbgompitz](https://kwb-r.github.io/kwbgompitz)
+Release: [https://kwb-r.github.io/kwbGompitz](https://kwb-r.github.io/kwbGompitz)
 
-Development: [https://kwb-r.github.io/kwbgompitz/dev](https://kwb-r.github.io/kwbgompitz/dev)
+Development: [https://kwb-r.github.io/kwbGompitz/dev](https://kwb-r.github.io/kwbGompitz/dev)
