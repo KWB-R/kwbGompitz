@@ -7,6 +7,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-9134-2871")),
     person("Michael", "Rustler", , "michael.rustler@kompetenz-wasser.de", role = "ctb",
            comment = c(ORCID = "0000-0003-0647-7726")),
+    person("SEMA", role = "fnd"),
     person("Kompetenzzentrum Wasser Berlin gGmbH (KWB)", role = "cph")
   )
 Description: Functions enabling the writing of GompitZ input files,
