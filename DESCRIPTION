@@ -1,24 +1,30 @@
 Package: kwbGompitz
-Title: Interface to GompitZ Tool for Modelling the Degradation
-    of Sewer Pipelines
-Version: 0.6.4.9000
-Author: Hauke Sonnenberg
-Maintainer: Hauke Sonnenberg
-    <hauke.sonnenberg@kompetenz-wasser.de>
-Description: Functions enabling the writing of GompitZ input
-    files, running of GompitZ Tools (gompcal.exe, gompred.exe) and reading
-    of GompitZ output files.
-License: GPL
+Title: Interface to GompitZ Tool for Modelling the Degradation of Sewer
+    Pipelines
+Version: 0.8.0
+Authors@R: c(
+    person("Hauke", "Sonnenberg", , "hauke.sonnenberg@kompetenz-wasser.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-9134-2871")),
+    person("Michael", "Rustler", , "michael.rustler@kompetenz-wasser.de", role = "ctb",
+           comment = c(ORCID = "0000-0003-0647-7726")),
+    person("Kompetenzzentrum Wasser Berlin gGmbH (KWB)", role = "cph")
+  )
+Description: Functions enabling the writing of GompitZ input files,
+    running of GompitZ Tools (gompcal.exe, gompred.exe) and reading of
+    GompitZ output files.
+License: MIT + file LICENSE
+URL: https://github.com/kwb-r/kwbGompitz
+BugReports: https://github.com/kwb-r/kwbGompitz/issues>
 Imports: 
+    data.table,
     ggplot2,
-    kwb.utils (>= 0.4),
+    kwb.plot,
+    kwb.utils,
+    manipulate,
     Rcpp
 Suggests: 
-    data.table,
     gridExtra,
     knitr,
-    kwb.plot,
-    manipulate,
     microbenchmark,
     rmarkdown,
     testthat
@@ -27,6 +33,7 @@ LinkingTo:
 VignetteBuilder: 
     knitr
 Remotes: 
-    github::kwb-r/kwb.utils,
-    github::kwb-r/kwb.plot
-RoxygenNote: 7.1.1
+    github::kwb-r/kwb.plot,
+    github::kwb-r/kwb.utils
+Encoding: UTF-8
+RoxygenNote: 7.2.1

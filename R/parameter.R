@@ -35,7 +35,7 @@
 #' # returns the calibration unchanged
 #' calibration <- copyParameters(calibration, "Cast Iron", "Brick")
 #' }
-#'
+#' @importFrom kwb.utils defaultIfNULL getAttribute selectElements
 copyParameters <- function(
   calibration, from = NULL, to = NULL, dbg = TRUE
 )
@@ -251,7 +251,7 @@ getCalibrationParameters <- function(
 #' @param dbg if \code{TRUE} (default) debug messages are shown
 #' @return list with sections \code{conditions}, /code{strata},
 #'   /code{covariates}, /code{categoryLevels}, /code{byStratum},
-#'
+#' @importFrom kwb.utils hsOpenWindowsExplorer
 readParameters <- function(file, sep = ";", dbg = FALSE)
 {
   kwb.utils::catIf(dbg, sprintf(
@@ -350,7 +350,7 @@ readParameters <- function(file, sep = ";", dbg = FALSE)
 #' @param warn if \code{TRUE} a message is shown that the existing parameter
 #'   file was overwritten
 #' @param digits_exp passed to \code{\link{parameterLines}}
-#'
+#' @importFrom kwb.utils catAndRun
 writeParameters <- function(
   parameters, file, sep = ";", dbg = TRUE, warn = FALSE, digits_exp = 2L
 )

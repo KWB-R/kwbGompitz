@@ -7,7 +7,7 @@
 #' @param column.length name of column in \code{x} containing the pipe lengths
 #'
 #' @export
-#'
+#' @importFrom kwb.utils countOrSum rbindAll
 summary_generic_sim <- function(x, column.group.by, column.length)
 {
   # Check for value columns

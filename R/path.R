@@ -6,7 +6,7 @@
 #' 
 #' @param VERSION one of "unix", "win32", "win32_kwb"
 #' @param \dots arguments passed to resolve
-#' 
+#' @importFrom kwb.utils .OStype readDictionary resolve safePath
 getDefaultPaths <- function(VERSION = getOperatingSystemType(), ...)
 {
   # Get a path dictionary (list of "keyword = path" assignments with
@@ -44,7 +44,7 @@ getOperatingSystemType <- function()
 #' Create temporary gompitz directory
 #'
 #' @param verbose integer value determining the level of verbosity
-#'  
+#' @importFrom kwb.utils rStylePath
 tempGompitzDir <- function(verbose = 1)
 {
   directory <- file.path(tempdir(), "gompitz")

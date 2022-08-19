@@ -6,7 +6,7 @@
 #' 
 #' @param file path to gompcal result file "calibr.txt"
 #' @param verbose integer number specifying the level of verbosity
-#' 
+#' @export
 readCalibration <- function (file, verbose = 1)
 {
   result.lines <- readLines(file, encoding = "UTF-8")
@@ -202,6 +202,15 @@ readCalibration <- function (file, verbose = 1)
 }
 
 # .getParameterEstimates -------------------------------------------------------
+#' Get Parameter Estimates
+#'
+#' @param x x
+#'
+#' @return ???
+#' @keywords internal
+#' @noMd
+#' @noRd
+#' @importFrom  kwb.utils hsTrim
 .getParameterEstimates <- function(x)
 {
   pattern <- "^Parameter estimates and Wald Chi2 tests"

@@ -33,7 +33,8 @@ exampleCalibration <- function(
 #' @return full path to the example file
 #' 
 #' @export
-#' 
+#' @importFrom kwb.utils catIf safePath selectElements
+#' @importFrom utils unzip
 exampleFile <- function(filename = "none", ..., dbg = TRUE)
 {
   # Call this function recursively if more than one file name is given
@@ -85,7 +86,7 @@ runGompcalExample <- function()
 #' Example Covariate Status Matrix
 #' 
 #' @seealso \code{\link{createStatusMatrix}}
-#' 
+#' @importFrom kwb.utils createMatrix 
 getExampleStatusMatrix <- function()
 {
   CONST <- getConstants()

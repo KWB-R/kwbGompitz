@@ -24,5 +24,4 @@ Convert text lines to status matrix, as e.g. required by
 file <- kwbGompitz::exampleFile("obs.txt")
 kwbGompitz:::toStatusMatrix(textlines = readLines(file, 8)[-(1:2)])
 }
-
 }

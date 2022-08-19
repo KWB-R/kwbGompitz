@@ -7,7 +7,7 @@
 #' @param sep column separator, default: ";"
 #' @param stringsAsFactors if \code{TRUE} character columns will appear as
 #'   factors in the result, passed to \code{\link{data.frame}}
-#' 
+#' @export
 readPredictionFile <- function(
   file, sep = ";", stringsAsFactors = default.stringsAsFactors()
 )
@@ -30,6 +30,17 @@ readPredictionFile <- function(
 }
 
 # readPredictionFileWithDataTable ----------------------------------------------
+#' Read Predictions File with data.table
+#'
+#' @param file file 
+#' @param sep sep (default: ";")
+#'
+#' @return ???
+#' @export
+#'
+#' @keywords internal
+#' @importFrom data.table fread
+#' @importFrom stats setNames
 readPredictionFileWithDataTable <- function(file, sep = ";")
 {
   prediction <- data.table::fread(file, sep = sep, data.table = FALSE)
@@ -70,6 +81,15 @@ readPredictionFileWithDataTable <- function(file, sep = ";")
 }
 
 # .predictionColNames ----------------------------------------------------------
+#' .predictionColNames
+#'
+#' @param ncol ncol  
+#'
+#' @return ???
+#' @keywords internal
+#' @noMd
+#' @noRd
+#' @importFrom kwb.utils moveToFront
 .predictionColNames <- function(ncol)
 {
   columns <- c("stratumNo", "PipeID", "PredictionYear", "index", "pipeLength")

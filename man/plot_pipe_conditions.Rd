@@ -49,5 +49,4 @@ Plot the Pipe Conditions over Time
 x <- kwbGompitz:::readObservations(kwbGompitz::exampleFile("obs.txt"))
 plot_pipe_conditions(x[1:100, ])
 }
-
 }

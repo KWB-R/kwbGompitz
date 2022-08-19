@@ -65,5 +65,4 @@ Run Gompitz Predicion
 }
 \examples{
 # For an example, see the Tutorial vignette "How to Use the Package"
-
 }

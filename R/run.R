@@ -26,7 +26,8 @@ runGompcalInDirectory <- function(
 #' @param strategy integer number specifying the strategy to be applied
 #' @param \dots arguments that are passed to .runModuleInDirectory, such as
 #'   \code{verbose} or \code{show.error}
-#' 
+#' @export
+#' @importFrom kwb.utils getAttribute safePath windowsPath
 runGompredInDirectory <- function(
   target.dir = tempdir(), input.file = exampleFile("obs.txt"), sep = ";",
   strategy = 0, ...
@@ -67,6 +68,20 @@ runGompredInDirectory <- function(
 
 # .runModuleInDirectory --------------------------------------------------------
 
+#' .runModuleInDirectory
+#'
+#' @param module module
+#' @param target.dir target.dir 
+#' @param input.file input.file 
+#' @param sep sep
+#' @param ... additional arguments passed to kwb.utils::runInDirectory
+#' @param verbose verbose (default: 1 )
+#' @param show.error show.error (default: TRUE)
+#'
+#' @return ???
+#' @export
+#'
+#' @importFrom kwb.utils collapsed createDirectory getAttribute runInDirectory 
 .runModuleInDirectory <- function
 (
   module, target.dir, input.file, sep, ..., verbose = 1, show.error = TRUE
@@ -109,6 +124,14 @@ runGompredInDirectory <- function(
 }
 
 # open_file_if_not_on_unix -----------------------------------------------------
+#' Open File if not on UNIX
+#'
+#' @param file file
+#'
+#' @return open file
+#' @keywords internal
+#'
+#' @importFrom kwb.utils hsOpenWindowsExplorer
 open_file_if_not_on_unix <- function(file)
 {
   if (! grepl("^unix", getOperatingSystemType())) {
@@ -119,6 +142,21 @@ open_file_if_not_on_unix <- function(file)
 
 # .runModule -------------------------------------------------------------------
 
+#' .runModule
+#'
+#' @param module module 
+#' @param input.file input.file
+#' @param sep sep 
+#' @param verbose default: 1
+#' @param options default: NULL
+#' @param qchar default: "'"
+#' @param ... additional arguments passed to getDefaultPaths
+#'
+#' @return ???
+#' @keywords internal
+#' @noMd
+#' @noRd
+#' @importFrom kwb.utils hsQuoteChr printIf safePath selectElements
 .runModule <- function (
   module, input.file, sep, verbose = 1, options = NULL, qchar = "'", ...
 )
@@ -151,6 +189,17 @@ open_file_if_not_on_unix <- function(file)
 
 # set_mode_executable ----------------------------------------------------------
 
+#' Set Mode Executable 
+#'
+#' @param file file 
+#' @param mask mask 
+#' @param dbg debug (default: TRUE)
+#'
+#' @return ???
+#' @keywords internal
+#' @noMd
+#' @noRd
+#' @importFrom kwb.utils catIf safePath
 set_mode_executable <- function(file, mask = as.octmode("111"), dbg = TRUE)
 {
   kwb.utils::catIf(dbg, sprintf(

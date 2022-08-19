@@ -5,7 +5,9 @@
 #' @param x list of class "gompitz.calibration" as returned by
 #'   \code{\link{runGompitzCalibration}}
 #' @param \dots further arguments (not used)
-#'  
+#' @return print GompitZ Calibration Structure 
+#' @export  
+#' @importFrom kwb.utils getAttribute stringList
 print.gompitz.calibration <- function(x, ...)
 {
   sourceFile <- kwb.utils::getAttribute(x, "source")
@@ -37,7 +39,10 @@ print.gompitz.calibration <- function(x, ...)
 #' @param x list of class "gompitz_stratum_calib" as contained in a calibration
 #'   object returned by \code{\link{runGompitzCalibration}}
 #' @param \dots further arguments (not used)
-#' 
+#' @return print the Calibration for one Stratum
+#' @export  
+#' @importFrom kwb.utils defaultIfNULL moveColumnsToFront printIf rbindAll 
+#' selectElements
 print.gompitz_stratum_calib <- function(x, ...)
 {
   get <- kwb.utils::selectElements
@@ -68,7 +73,9 @@ print.gompitz_stratum_calib <- function(x, ...)
 #' 
 #' @param x \code{NULL} or a list with elements \code{num.iterations},
 #'   \code{log.likelihood}, \code{covariances}, \code{estimates}, 
-#' 
+#' @return Print the convergence information
+#' @export  
+#' @importFrom kwb.utils catLines printIf selectElements 
 printConvergence <- function(x)
 {
   get <- kwb.utils::selectElements
@@ -95,7 +102,10 @@ printConvergence <- function(x)
 #' 
 #' @param x any R object
 #' @param max.level passed to \code{\link[utils]{capture.output}}
-#' 
+#' @return print the structure of an object
+#' @export
+#' @importFrom utils capture.output str
+#' @importFrom kwb.utils catLines
 catStructure <- function(x, max.level = NA)
 {
   output <- utils::capture.output(utils::str(x, max.level = max.level))
@@ -109,7 +119,7 @@ catStructure <- function(x, max.level = NA)
 #' 
 #' @param x caption
 #' @param char character used for the underline
-#' 
+#' @export
 catHeader <- function(x, char)
 {
   cat(sprintf("%s\n%s\n", x, underline(nchar(x), char)))
@@ -121,7 +131,8 @@ catHeader <- function(x, char)
 #' 
 #' @param n number of characters
 #' @param char character used for the underline
-#' 
+#' @export
+#' @importFrom kwb.utils collapsed
 underline <- function(n = 10, char = "-")
 {
   kwb.utils::collapsed(rep(char, n), "")

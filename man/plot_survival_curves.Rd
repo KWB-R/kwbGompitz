@@ -50,5 +50,4 @@ calibration <- kwbGompitz::exampleCalibration()
 # Compare the plots
 gridExtra::grid.arrange(plots_1[[1]], plots_2[[1]], plots_1[[2]], plots_2[[2]])
 }
-
 }

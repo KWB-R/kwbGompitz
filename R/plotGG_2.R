@@ -24,7 +24,10 @@
 #' x <- kwbGompitz:::readObservations(kwbGompitz::exampleFile("obs.txt"))
 #' plot_pipe_conditions(x[1:100, ])
 #' }
-#'
+#' @importFrom  kwb.utils underscoreToPercent selectColumns
+#' @importFrom stats as.formula
+#' @importFrom ggplot2 aes_string element_blank facet_wrap geom_point 
+#' scale_colour_manual theme ylab  
 plot_pipe_conditions <- function
 (
   x, column_instyear = "instyear", column_ident = "ident",
@@ -87,6 +90,20 @@ plot_pipe_conditions <- function
 }
 
 # plot_prediction_by_pipe ------------------------------------------------------
+#' Plot Condition Probabilities by Pipe
+#' @description List of ggplots with each plot representing the evolution of 
+#' condition probabilities over time for one pipe
+#' @param prediction data frame as returned by \code{\link{runGompitzPrediction}}
+#' @param prefix prefix of column names containing the probabilities. Default: "prob"
+#' @param pipe_ids  vector of pipe IDs for which a plot is to be generated. By 
+#' default all available pipes are considered!
+#' @param width passed to \code{\link[ggplot2]{geom_col}} (default: 1)
+#'
+#' @return ??? 
+#' @export
+#'
+#' @importFrom kwb.utils hsMatrixToListForm
+#' @importFrom ggplot2 geom_col ggtitle
 plot_prediction_by_pipe <- function # Plot Condition Probabilities by Pipe
 ### List of ggplots with each plot representing the evolution of condition
 ### probabilities over time for one pipe
@@ -153,6 +170,16 @@ plot_prediction_by_pipe <- function # Plot Condition Probabilities by Pipe
 }
 
 # format_prediction ------------------------------------------------------------
+#' Format Prediction
+#'
+#' @param prediction prediction 
+#'
+#' @return ???
+#' @keywords internal
+#' @noRd
+#' @noMd
+#' @importFrom kwb.utils checkForMissingColumns multiSubstitute roundColumns 
+#' removeColumns
 format_prediction <- function(prediction)
 {
   #head(prediction)
