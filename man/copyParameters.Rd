@@ -44,5 +44,4 @@ calibration <- copyParameters(calibration, "Clay", "Brick")
 # returns the calibration unchanged
 calibration <- copyParameters(calibration, "Cast Iron", "Brick")
 }
-
 }

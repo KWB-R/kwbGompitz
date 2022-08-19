@@ -1,13 +1,15 @@
 [![R-CMD-check](https://github.com/KWB-R/kwbGompitz/workflows/R-CMD-check/badge.svg)](https://github.com/KWB-R/kwbGompitz/actions?query=workflow%3AR-CMD-check)
 [![pkgdown](https://github.com/KWB-R/kwbGompitz/workflows/pkgdown/badge.svg)](https://github.com/KWB-R/kwbGompitz/actions?query=workflow%3Apkgdown)
 [![codecov](https://codecov.io/github/KWB-R/kwbGompitz/branch/main/graphs/badge.svg)](https://codecov.io/github/KWB-R/kwbGompitz)
-[![Project Status](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![Project Status](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/kwbGompitz)]()
+[![R-Universe_Status_Badge](https://kwb-r.r-universe.dev/badges/kwbGompitz)](https://kwb-r.r-universe.dev/)
 
 # kwbGompitz
 
-Functions enabling the writing of GompitZ input files, running of 
-GompitZ Tools (gompcal.exe, gompred.exe) and reading of GompitZ output files.
+Functions enabling the writing of GompitZ input files,
+running of GompitZ Tools (gompcal.exe, gompred.exe) and reading of
+GompitZ output files.
 
 ## Installation
 

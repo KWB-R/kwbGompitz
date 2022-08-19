@@ -10,6 +10,9 @@ printConvergence(x)
 \item{x}{\code{NULL} or a list with elements \code{num.iterations},
 \code{log.likelihood}, \code{covariances}, \code{estimates},}
 }
+\value{
+Print the convergence information
+}
 \description{
 Print the Convergence Information
 }

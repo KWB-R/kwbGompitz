@@ -16,7 +16,7 @@
 #'   
 #' @return character vector of length one representing the file content of the 
 #'   strategy file
-#' 
+#' @importFrom kwb.utils selectElements
 strategyFileContent <- function(strategy, ...)
 {
   get <- kwb.utils::selectElements
@@ -74,7 +74,7 @@ strategyFileContent <- function(strategy, ...)
 #' @param range.years vector of two integer numbers: first and last year of
 #'   simulation
 #' @param condition.labels vector of condition labels
-#' 
+#' @importFrom kwb.utils hsTrim defaultIfNA stringList
 .fileContentStrategy0 <- function(range.years, condition.labels)
 {
   if (! is.numeric(range.years) || length(range.years) != 2) {
@@ -185,7 +185,8 @@ strategyFileContent <- function(strategy, ...)
 #'   list(C4=200, C3=300, C2=400, C1=500)
 #' @param annual.total.length.or.budget list of annual total lengths to be
 #'   rehabilitated or annual total budgets.
-#' 
+#' @importFrom kwb.utils defaultIfNA hsChrToNum
+#' @importFrom stats approx
 .fileContentStrategy1or2 <- function(
   rehabilitation.costs, annual.total.length.or.budget
 )

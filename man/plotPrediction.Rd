@@ -35,5 +35,4 @@ prediction <- data.frame(
 )
 
 kwbGompitz:::plotPrediction(prediction, legend_pos = "right")
-
 }

@@ -3,6 +3,14 @@
 NULL
 
 # test_marginal_survival -------------------------------------------------------
+#' Test Marginal Survival
+#'
+#' @param t t (default: 0:99)
+#'
+#' @return ???
+#' @export
+#' @importFrom stats rnorm
+#' @importFrom kwb.utils callWith printIf
 test_marginal_survival <- function(t = 0:99)
 {
   calibration <- exampleCalibration()
@@ -55,6 +63,7 @@ test_marginal_survival <- function(t = 0:99)
 #' @param bz1 parameter "bz1"
 #' @param s standard deviation?
 #' @param version 1, 2, or 3
+#' @export
 #' 
 marginal_survival <- function(t, alpha, bz0, bz1, s, version = 1)
 {
@@ -77,6 +86,18 @@ marginal_survival <- function(t, alpha, bz0, bz1, s, version = 1)
 }
 
 # marginal_survival_v1 ---------------------------------------------------------
+#' Marginal Survival (v1) 
+#'
+#' @param t t
+#' @param alpha alpha 
+#' @param bz0 bz0
+#' @param bz1 bz1
+#' @param s s
+#'
+#' @return ????
+#'
+#' @keywords internal
+#' @importFrom kwb.utils limitToRange
 marginal_survival_v1 <- function(t, alpha, bz0, bz1, s)
 {
   x <- c(.1488743389, .4333953941, .6794095682, .8650633666, .9739065285)
@@ -106,6 +127,19 @@ marginal_survival_v1 <- function(t, alpha, bz0, bz1, s)
 SQRT_2_PI <- sqrt(2 * pi)
 
 # marginal_survival_v2 ---------------------------------------------------------
+#' Marginal Survival (v2) 
+#'
+#' @param t t
+#' @param alpha alpha 
+#' @param bz0 bz0
+#' @param bz1 bz1
+#' @param s s
+#'
+#' @return ????
+#'
+#' @keywords internal
+#' @importFrom kwb.utils limitToRange
+
 marginal_survival_v2 <- function(t, alpha, bz0, bz1, s)
 {
   xr <- 2.5 * s
@@ -146,7 +180,8 @@ marginal_survival_v2 <- function(t, alpha, bz0, bz1, s)
 #' @param limits numeric vector of two elements giving the minimum and maximum
 #'   value to which the result shall be restricted. If not given or \code{NULL}
 #'   the result will not be restricted to a value range.
-#'
+#' @export
+#' @importFrom kwb.utils limitToRange
 standard_survival <- function(
   alpha, t, bz1, bz0 = 0, offset = t * exp(bz1) + bz0, limits = NULL
 )

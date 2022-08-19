@@ -22,9 +22,10 @@
 #' @return list with elements \emph{masterdata} (data.frame), \emph{covariates} 
 #'   (data.frame), \emph{weight} (numeric vector), \emph{covariates.status} 
 #'   (numeric matrix) and \emph{condition.labels} (character vector)
+#' @importFrom  kwb.utils isNaOrEmpty selectColumns 
 #' 
 #' @export
-#' 
+
 composeGompitzInputData <- function(
   masterdata, covariates, weight, covariates.status, condition.labels = NULL,
   warn = FALSE
@@ -119,7 +120,8 @@ composeMasterData <- function(stratum, pipeid, instyear, inspyear, condition)
 #' @param column.length name of column in \code{Data} containing the pipe
 #'   lengths
 #' @param note if \code{TRUE} (default) a note about the length column is given
-#'
+#' @importFrom kwb.utils createMatrix defaultIfNULL hsQuoteChr selectColumns 
+#' setMatrixColumns
 #' @export
 #'  
 createStatusMatrix <- function(

@@ -1,4 +1,15 @@
 # checkInputData ---------------------------------------------------------------
+#' Check Input Data
+#' 
+#' @description Checks if input data is defined properly
+#' @param input.data input.data
+#'   
+#' @return error in case input data was not defined properly
+#' @importFrom kwb.utils checkForMissingColumns getAttribute selectElements 
+#' stopIfNotMatrix stringList
+#' @export
+#' 
+
 checkInputData <- function(input.data)
 {
   stopifnot(is.list(input.data))

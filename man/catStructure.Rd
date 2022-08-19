@@ -11,6 +11,9 @@ catStructure(x, max.level = NA)
 
 \item{max.level}{passed to \code{\link[utils]{capture.output}}}
 }
+\value{
+print the structure of an object
+}
 \description{
 Print the Structure of an Object
 }

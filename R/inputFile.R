@@ -6,7 +6,8 @@
 #'   (see "The GompitZ Tool User's Guide")
 #' @param sep column separator
 #' @param dbg if \code{TRUE} debug messages are shown, else not.
-#' 
+#' @importFrom kwb.utils catIf stringList
+#' @importFrom utils read.table
 readObservations <- function(
   file = exampleFile("obs.txt"), sep = ";", dbg = TRUE
 )
@@ -71,7 +72,8 @@ readObservations <- function(
 #' file <- kwbGompitz::exampleFile("obs.txt")
 #' kwbGompitz:::toStatusMatrix(textlines = readLines(file, 8)[-(1:2)])
 #' }
-#' 
+#' @importFrom kwb.utils collapsed
+#' @importFrom utils read.table
 toStatusMatrix <- function(textlines, sep = ";", order_rows = FALSE)
 {
   text <- kwb.utils::collapsed(textlines[-1], "\n")
@@ -107,7 +109,7 @@ toStatusMatrix <- function(textlines, sep = ";", order_rows = FALSE)
 #' @param sep column separator
 #' @param file if a path to a file is given here, the content will be written
 #'   to the file instead of returned by this function
-#' 
+#' @importFrom data.table fwrite
 getFileContentForInputFile <- function(
   masterdata, covariates, covariates.status, condition.labels, weight, sep,
   file = NULL
@@ -146,7 +148,7 @@ getFileContentForInputFile <- function(
 #' @param sep column separator
 #' 
 #' @seealso \code{kwbGompitz:::inputFileBody}
-#' 
+#' @importFrom kwb.utils collapsed selectColumns
 inputFileHeader <- function(
   condition.labels, covariates, covariates.status, sep = ";"
 )

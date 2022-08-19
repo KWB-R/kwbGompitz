@@ -23,7 +23,7 @@
 #' )
 #'
 #' kwbGompitz:::plotPrediction(prediction, legend_pos = "right")
-#'
+#' @importFrom ggplot2 xlab 
 plotPrediction <- function(
   prediction, legend_pos = c("bottom", "left", "top", "right", "none")[5],
   do_print = TRUE
@@ -105,7 +105,7 @@ plot_stacked_bars <- function(x, x.sd = NULL, reverse = TRUE, ...)
 #'
 #' @param x numeric vector
 #' @param x.sd standard deviation
-#'
+#' @importFrom kwb.utils almostEqual toFactor
 prepare_for_gg_stacked_bars <- function(x, x.sd = NULL)
 {
   # Prepare a list of matrices
@@ -176,7 +176,7 @@ columnwise <- function(x, FUN, ...)
 #'
 #' @param x data frame or list of data frames
 #' @param columnName column name in result data frame
-#'
+#' @importFrom kwb.utils hsMatrixToListForm
 matrixToLongDataFrame <- function(x, columnName =  deparse(substitute(x)))
 {
   if (is.list(x)) {
@@ -270,7 +270,10 @@ cbindDataFrames <- function(dataFrames, keyindex = 1:2)
 #'   to colour names.
 #'
 #' @export
-#'
+#' @importFrom ggplot2 aes_string geom_bar geom_errorbar geom_point geom_text 
+#' position_stack scale_fill_manual theme_bw
+#' @importFrom kwb.utils selectColumns
+#' 
 gg_stacked_bars <- function(
   data, relative = TRUE, labels = FALSE,
   legend = c("bottom", "left", "top", "right", "none")[5], reverse = TRUE,
@@ -380,7 +383,10 @@ get_default_colours_for_labels <- function(condition_labels)
 #' Condition Class(es) to Colour String(s)
 #'
 #' @param x vector of condition class numbers or labels "prob1", "prob2", ...
-#'
+#' @keywords internal
+#' @noMd
+#' @noRd
+#' @importFrom kwb.utils inRange stringList
 toColours <- function(x)
 {
   colours <- c("darkgreen", "yellow", "darkorange3", "red3")
@@ -422,7 +428,7 @@ toColours <- function(x)
 #' @return vector of colour codes with the conditions as element names
 #'
 #' @export
-#'
+#' @importFrom grDevices rainbow
 default_condition_colours <- function(condition_labels)
 {
   # Colours from red to green
@@ -438,7 +444,9 @@ default_condition_colours <- function(condition_labels)
 #'
 #' @param element one of "title", "ylab", "ylab.rel", "ylab.dev", "title.legend"
 #' @param lng language acronym, "de" for German or "en" for English
-#'
+#' @return  ???
+#' @export
+#' @importFrom kwb.utils selectElements
 get_label <- function(element = NULL, lng = "en")
 {
   configs <- list(
@@ -477,7 +485,8 @@ get_label <- function(element = NULL, lng = "en")
 #'
 #' @param legend logical indicating whether to put a legend or not or a string
 #'   giving the legend position ("left", "right", "top", "bottom")
-#'
+#' @export
+#' @importFrom ggplot2 theme
 to_theme_legend <- function(legend)
 {
   ggplot2::theme(legend.position = if (is.logical(legend)) {

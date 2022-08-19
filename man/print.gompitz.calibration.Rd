@@ -12,6 +12,9 @@
 
 \item{\dots}{further arguments (not used)}
 }
+\value{
+print GompitZ Calibration Structure
+}
 \description{
 Print a GompitZ Calibration Structure
 }
