@@ -6,11 +6,10 @@
 #'   being the strategy number
 #' @param sep column separator, default: ";"
 #' @param stringsAsFactors if \code{TRUE} character columns will appear as
-#'   factors in the result, passed to \code{\link{data.frame}}
+#'   factors in the result, passed to \code{\link{data.frame}}. The default is 
+#'   \code{FALSE}.
 #' @export
-readPredictionFile <- function(
-  file, sep = ";", stringsAsFactors = default.stringsAsFactors()
-)
+readPredictionFile <- function(file, sep = ";", stringsAsFactors = FALSE)
 {
   # Remove and report warnings in the file
   textlines <- .warningsRemoved(readLines(kwb.utils::safePath(file)))
