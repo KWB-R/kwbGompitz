@@ -4,7 +4,9 @@
 \name{SQRT_2_PI}
 \alias{SQRT_2_PI}
 \title{Mathematical Constant \code{sqrt(2 * pi)}}
-\format{An object of class \code{numeric} of length 1.}
+\format{
+An object of class \code{numeric} of length 1.
+}
 \usage{
 SQRT_2_PI
 }

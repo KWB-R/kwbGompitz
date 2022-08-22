@@ -4,9 +4,15 @@
 \alias{plot_survival_curves}
 \title{Plot Survival Curves}
 \usage{
-plot_survival_curves(calibration = exampleCalibration(),
-  stratum = NULL, marginal = TRUE, t = 1:100, col = NULL, ...,
-  args = NULL)
+plot_survival_curves(
+  calibration = exampleCalibration(),
+  stratum = NULL,
+  marginal = TRUE,
+  t = 1:100,
+  col = NULL,
+  ...,
+  args = NULL
+)
 }
 \arguments{
 \item{calibration}{calibration object}
@@ -44,5 +50,4 @@ calibration <- kwbGompitz::exampleCalibration()
 # Compare the plots
 gridExtra::grid.arrange(plots_1[[1]], plots_2[[1]], plots_1[[2]], plots_2[[2]])
 }
-
 }

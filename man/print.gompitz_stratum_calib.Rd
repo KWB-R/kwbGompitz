@@ -12,6 +12,9 @@ object returned by \code{\link{runGompitzCalibration}}}
 
 \item{\dots}{further arguments (not used)}
 }
+\value{
+print the Calibration for one Stratum
+}
 \description{
 Print the Calibration for one Stratum
 }

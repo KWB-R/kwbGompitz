@@ -4,12 +4,18 @@
 \alias{plot_pipe_conditions}
 \title{Plot the Pipe Conditions over Time}
 \usage{
-plot_pipe_conditions(x, column_instyear = "instyear",
-  column_ident = "ident", column_inspyear = "inspyear",
-  column_condition = "condition", colour_values = c(C4 = "green", C3 =
-  "yellow", C2 = "orange", C1 = "red", "grey"), y_labels = FALSE,
+plot_pipe_conditions(
+  x,
+  column_instyear = "instyear",
+  column_ident = "ident",
+  column_inspyear = "inspyear",
+  column_condition = "condition",
+  colour_values = c(C4 = "green", C3 = "yellow", C2 = "orange", C1 = "red", "grey"),
+  y_labels = FALSE,
   facet_by = sprintf(kwb.utils::underscoreToPercent("~(10*as.integer(_s/10))"),
-  column_instyear), by_pipe = FALSE)
+    column_instyear),
+  by_pipe = FALSE
+)
 }
 \arguments{
 \item{x}{data frame}
@@ -43,5 +49,4 @@ Plot the Pipe Conditions over Time
 x <- kwbGompitz:::readObservations(kwbGompitz::exampleFile("obs.txt"))
 plot_pipe_conditions(x[1:100, ])
 }
-
 }

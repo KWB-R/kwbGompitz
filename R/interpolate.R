@@ -1,4 +1,14 @@
 # interpolate ------------------------------------------------------------------
+#' interpolate
+#'
+#' @param y_list y_list
+#' @param interpol_info interpol_info 
+#'
+#' @return ???
+#' @keywords internal
+#' @noRd
+#' @noMd
+#' @importFrom  kwb.utils allAreEqual getAttribute hsRestoreAttributes selectElements
 interpolate <- function(y_list, interpol_info)
 {
   getele <- kwb.utils::selectElements

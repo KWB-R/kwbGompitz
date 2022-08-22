@@ -4,9 +4,13 @@
 \alias{plotPredictionForYear}
 \title{Plot Prediction for the given Year}
 \usage{
-plotPredictionForYear(res, year,
-  FUN.name = "orderByWeightedProbabilities", main = NULL,
-  column.year = "year")
+plotPredictionForYear(
+  res,
+  year,
+  FUN.name = "orderByWeightedProbabilities",
+  main = NULL,
+  column.year = "year"
+)
 }
 \arguments{
 \item{res}{prediction result as provided by e.g.

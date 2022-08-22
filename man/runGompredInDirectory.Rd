@@ -4,8 +4,13 @@
 \alias{runGompredInDirectory}
 \title{Run gompred.exe in given Directory}
 \usage{
-runGompredInDirectory(target.dir = tempdir(),
-  input.file = exampleFile("obs.txt"), sep = ";", strategy = 0, ...)
+runGompredInDirectory(
+  target.dir = tempdir(),
+  input.file = exampleFile("obs.txt"),
+  sep = ";",
+  strategy = 0,
+  ...
+)
 }
 \arguments{
 \item{target.dir}{path to target directory}

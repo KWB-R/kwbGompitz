@@ -11,6 +11,9 @@ get_label(element = NULL, lng = "en")
 
 \item{lng}{language acronym, "de" for German or "en" for English}
 }
+\value{
+???
+}
 \description{
 Provide Label for Plot in selected Language
 }

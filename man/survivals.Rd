@@ -4,9 +4,18 @@
 \alias{survivals}
 \title{Get Values of (Standard or Marginal) Survival Curves}
 \usage{
-survivals(t = 0:99, alpha, bz1, bz0, s = NULL,
-  marginal = !is.null(s), matrix = TRUE, set_attributes = FALSE,
-  interpol_info = NULL, ...)
+survivals(
+  t = 0:99,
+  alpha,
+  bz1,
+  bz0,
+  s = NULL,
+  marginal = !is.null(s),
+  matrix = TRUE,
+  set_attributes = FALSE,
+  interpol_info = NULL,
+  ...
+)
 }
 \arguments{
 \item{t}{numeric vector of times (ages)}

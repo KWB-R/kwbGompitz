@@ -4,8 +4,14 @@
 \alias{composeGompitzInputData}
 \title{Compose Input Data for Gompitz Functions}
 \usage{
-composeGompitzInputData(masterdata, covariates, weight, covariates.status,
-  condition.labels = NULL, warn = FALSE)
+composeGompitzInputData(
+  masterdata,
+  covariates,
+  weight,
+  covariates.status,
+  condition.labels = NULL,
+  warn = FALSE
+)
 }
 \arguments{
 \item{masterdata}{data.frame containing master data as retrieved by 

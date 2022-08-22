@@ -74,7 +74,7 @@ runGompitzCalibration <- function(
 #' @param file path to the file to be written
 #' @param verbose integer number specifying the verbosity level. If this is a 
 #'   positive value, debug messages are shown.
-#' 
+#' @importFrom  kwb.utils safePath
 writeInputFile <- function(textlines, file, verbose = 1)
 {
   kwb.utils::safePath(dirname(file))
@@ -101,7 +101,7 @@ writeInputFile <- function(textlines, file, verbose = 1)
 #' @param file_calib full path to calibration file \code{calibr.txt}
 #' @param file_param full path to file \code{param.txt}
 #' @param digits passed to \code{kwbGompitz:::compareEstimates}
-#'
+#' @importFrom kwb.utils addClass
 getCalibration <- function(file_calib, file_param = NULL, digits = 3)
 {
   calibration <- readCalibration(kwb.utils::safePath(file_calib))
@@ -156,7 +156,7 @@ getCalibration <- function(file_calib, file_param = NULL, digits = 3)
 #'   strata!?).
 #'
 #' @return number of warnings that occurred
-#'
+#' @importFrom kwb.utils collapsed stringList
 compareEstimates <- function(calibration, parameters, digits, warn = FALSE)
 {
   n.warnings <- 0

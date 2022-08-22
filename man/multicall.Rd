@@ -4,8 +4,7 @@
 \alias{multicall}
 \title{Call a Function with all Combinations of Argument Ranges}
 \usage{
-multicall(FUN, ..., fix. = names(formals(FUN))[1],
-  max.combinations = 1000)
+multicall(FUN, ..., fix. = names(formals(FUN))[1], max.combinations = 1000)
 }
 \arguments{
 \item{FUN}{function to be called}

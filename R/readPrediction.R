@@ -6,11 +6,10 @@
 #'   being the strategy number
 #' @param sep column separator, default: ";"
 #' @param stringsAsFactors if \code{TRUE} character columns will appear as
-#'   factors in the result, passed to \code{\link{data.frame}}
-#' 
-readPredictionFile <- function(
-  file, sep = ";", stringsAsFactors = default.stringsAsFactors()
-)
+#'   factors in the result, passed to \code{\link{data.frame}}. The default is 
+#'   \code{FALSE}.
+#' @export
+readPredictionFile <- function(file, sep = ";", stringsAsFactors = FALSE)
 {
   # Remove and report warnings in the file
   textlines <- .warningsRemoved(readLines(kwb.utils::safePath(file)))
@@ -30,6 +29,17 @@ readPredictionFile <- function(
 }
 
 # readPredictionFileWithDataTable ----------------------------------------------
+#' Read Predictions File with data.table
+#'
+#' @param file file 
+#' @param sep sep (default: ";")
+#'
+#' @return ???
+#' @export
+#'
+#' @keywords internal
+#' @importFrom data.table fread
+#' @importFrom stats setNames
 readPredictionFileWithDataTable <- function(file, sep = ";")
 {
   prediction <- data.table::fread(file, sep = sep, data.table = FALSE)
@@ -70,6 +80,15 @@ readPredictionFileWithDataTable <- function(file, sep = ";")
 }
 
 # .predictionColNames ----------------------------------------------------------
+#' .predictionColNames
+#'
+#' @param ncol ncol  
+#'
+#' @return ???
+#' @keywords internal
+#' @noMd
+#' @noRd
+#' @importFrom kwb.utils moveToFront
 .predictionColNames <- function(ncol)
 {
   columns <- c("stratumNo", "PipeID", "PredictionYear", "index", "pipeLength")

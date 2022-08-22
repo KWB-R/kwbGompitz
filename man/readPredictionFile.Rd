@@ -4,8 +4,7 @@
 \alias{readPredictionFile}
 \title{Read Prediction Result File}
 \usage{
-readPredictionFile(file, sep = ";",
-  stringsAsFactors = default.stringsAsFactors())
+readPredictionFile(file, sep = ";", stringsAsFactors = FALSE)
 }
 \arguments{
 \item{file}{full path to prediction result file (predict<n>.txt) with <n>
@@ -14,7 +13,8 @@ being the strategy number}
 \item{sep}{column separator, default: ";"}
 
 \item{stringsAsFactors}{if \code{TRUE} character columns will appear as
-factors in the result, passed to \code{\link{data.frame}}}
+factors in the result, passed to \code{\link{data.frame}}. The default is 
+\code{FALSE}.}
 }
 \description{
 Read Prediction Result File

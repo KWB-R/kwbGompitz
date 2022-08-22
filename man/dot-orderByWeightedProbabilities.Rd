@@ -4,8 +4,10 @@
 \alias{.orderByWeightedProbabilities}
 \title{probability order 2}
 \usage{
-.orderByWeightedProbabilities(probabilities,
-  weight = seq_len(ncol(probabilities)))
+.orderByWeightedProbabilities(
+  probabilities,
+  weight = seq_len(ncol(probabilities))
+)
 }
 \arguments{
 \item{probabilities}{matrix of probabilities}

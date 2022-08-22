@@ -7,6 +7,9 @@
 #' @param bz0.0 initial value of the \code{bz0} parameter
 #' @param bz1.0 initial value of the \code{bz1} parameter
 #' @param theme ggplot2-theme applied to the plots
+#' @importFrom ggplot2 theme_bw
+#' @importFrom manipulate checkbox manipulate slider 
+#' @export
 #' 
 demo_survival <- function(
   t = 1:100, alpha.0 = -1.15, bz0.0 = -0.88, bz1.0 = -2.77, 
@@ -43,7 +46,8 @@ demo_survival <- function(
 #'   parameters \code{alpha}, \code{bz0}, \code{bz1} if they are to be varied or
 #'   to be kept fix
 #' @param theme ggplot2-theme applied to the plots
-#'   
+#' @importFrom ggplot2 aes_string geom_line geom_point ggplot theme_bw labs  
+#' @importFrom kwb.utils selectColumns
 multiplot_survival <- function(
   t, alpha = 0, bz0 = 0, bz1 = 0, span = rep(TRUE, 3), 
   theme = ggplot2::theme_bw()

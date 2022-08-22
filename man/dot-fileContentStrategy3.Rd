@@ -4,8 +4,13 @@
 \alias{.fileContentStrategy3}
 \title{Content for Strategy File 3}
 \usage{
-.fileContentStrategy3(condition.labels, rehabilitation.costs,
-  max.tol.prop.of.length, range.years, target.year)
+.fileContentStrategy3(
+  condition.labels,
+  rehabilitation.costs,
+  max.tol.prop.of.length,
+  range.years,
+  target.year
+)
 }
 \arguments{
 \item{condition.labels}{vector of condition labels Example: c("C4", "C3",

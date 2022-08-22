@@ -4,8 +4,12 @@
 \alias{runGompcalInDirectory}
 \title{Run gompcal.exe in given Directory}
 \usage{
-runGompcalInDirectory(target.dir = tempGompitzDir(),
-  input.file = exampleFile("obs.txt"), sep = ";", ...)
+runGompcalInDirectory(
+  target.dir = tempGompitzDir(),
+  input.file = exampleFile("obs.txt"),
+  sep = ";",
+  ...
+)
 }
 \arguments{
 \item{target.dir}{path to target directory}

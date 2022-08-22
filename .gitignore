@@ -7,3 +7,4 @@ inst/extdata/bin*
 inst/extdata/example*
 *.o
 *.dll
+docs

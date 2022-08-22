@@ -30,7 +30,9 @@
 #' # Compare the plots
 #' gridExtra::grid.arrange(plots_1[[1]], plots_2[[1]], plots_1[[2]], plots_2[[2]])
 #' }
-#'
+#' @importFrom kwb.utils excludeNULL getAttribute toNamedList
+#' @importFrom kwb.plot plot_curve_areas_gg
+#' @importFrom ggplot2 element_blank labs theme
 plot_survival_curves <- function(
   calibration = exampleCalibration(), stratum = NULL, marginal = TRUE,
   t = 1:100, col = NULL, ..., args = NULL
@@ -95,6 +97,16 @@ plot_survival_curves <- function(
 
 # y_axis_percent ---------------------------------------------------------------
 
+#' y axis percent 
+#'
+#' @param by by (default: 0.1) 
+#' @param ... additional arguments passed to ggplot2::scale_y_continuous
+#'
+#' @return ???
+#' @keywords internal
+#' @noRd
+#' @noMd
+#' @importFrom ggplot2 scale_y_continuous
 y_axis_percent <- function(by = 0.1, ...)
 {
   # Define y tick positions
@@ -110,7 +122,8 @@ y_axis_percent <- function(by = 0.1, ...)
 #' @param calib calibration result as retrieved by
 #'   \code{\link{runGompitzCalibration}}
 #' @param to.pdf if \code{TRUE} the plot is directed into a temporary PDF file
-#'
+#' @importFrom kwb.utils finishAndShowPdfIf preparePdfIf
+#' @importFrom graphics par text
 plotCalibration1 <- function(calib, to.pdf = FALSE)
 {
   pdf.file <- kwb.utils::preparePdfIf(to.pdf)
@@ -155,7 +168,8 @@ plotCalibration1 <- function(calib, to.pdf = FALSE)
 #' @param calib calibration result as retrieved by
 #'   \code{\link{runGompitzCalibration}}
 #' @param to.pdf if \code{TRUE} the plot is directed into a temporary PDF file
-#'
+#' @importFrom kwb.utils finishAndShowPdfIf preparePdfIf
+#' @importFrom graphics barplot text
 plotCalibration2 <- function(calib, to.pdf = FALSE)
 {
   obs.by.condition <- .getObservationByCondition(calib)
@@ -193,7 +207,7 @@ plotCalibration2 <- function(calib, to.pdf = FALSE)
 #' @param column.year name of column containing the year
 #'
 #' @seealso \code{\link{runGompitzPrediction}}
-#'
+#' @importFrom kwb.utils finishAndShowPdfIf preparePdfIf selectColumns
 plotPredictionByYear <- function(
   prediction, to.pdf = TRUE, FUN.name = "orderByWeightedProbabilities",
   column.year = "year"
@@ -228,7 +242,8 @@ plotPredictionByYear <- function(
 #' @param main main title of plot
 #' @param column.year name of column containing the year
 #' @seealso \code{\link{runGompitzPrediction}}
-#'
+#' @importFrom kwb.utils selectColumns
+#' @importFrom graphics barplot
 plotPredictionForYear <- function(
   res, year, FUN.name = "orderByWeightedProbabilities", main = NULL,
   column.year = "year"

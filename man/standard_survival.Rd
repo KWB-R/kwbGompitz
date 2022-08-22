@@ -4,8 +4,14 @@
 \alias{standard_survival}
 \title{Weibull condition state survival function}
 \usage{
-standard_survival(alpha, t, bz1, bz0 = 0, offset = t * exp(bz1) + bz0,
-  limits = NULL)
+standard_survival(
+  alpha,
+  t,
+  bz1,
+  bz0 = 0,
+  offset = t * exp(bz1) + bz0,
+  limits = NULL
+)
 }
 \arguments{
 \item{alpha}{parameter "alpha"}
